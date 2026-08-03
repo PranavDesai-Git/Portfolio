@@ -1,12 +1,10 @@
-import { $ } from './utils/dom.js';
+import { $, createElement } from './utils/dom.js';
 import { Store } from './utils/store.js';
-import { Header } from './components/Header.js';
-import { Hero } from './components/Hero.js';
-import { Footer } from './components/Footer.js';
+import { Button } from './components/button.js';
 
-// Global Application State
 export const globalStore = new Store({
     user: null,
+    count: 0,
     theme: 'dark'
 });
 
@@ -18,30 +16,50 @@ class App {
     init() {
         if (!this.root) return;
 
-        // Header Component
-        const header = new Header({
-            title: 'Portfolio',
-            navLinks: [
-                { label: 'Home', href: '#' },
-            ]
+        const boxContainer = createElement('div', {
+            className: 'card flex-col items-center gap-3 text-center'
         });
-        header.mount(this.root);
+        this.root.appendChild(boxContainer);
 
-        // Hero Component
-        const hero = new Hero({
-            title: 'Portfolio',
-            subtitle: ' ',
+        const cardBox = createElement('div', {
+            className: 'card flex flex-col items-center gap-3 text-center'
         });
-        hero.mount(this.root);
+        boxContainer.appendChild(cardBox);
 
-        // Footer Component
-        const footer = new Footer();
-        footer.mount(this.root);
+        const cardBox2 = createElement('div', {
+            className: 'card flex flex-col items-center gap-3 text-center'
+        });
+        boxContainer.appendChild(cardBox2);
+
+
+        const myButton = new Button({
+            text: `int:${globalStore.state.count}`,
+            className: 'btn btn-primary',
+            callFunc: () => {
+                globalStore.state.count++;
+            }
+        });
+        myButton.mount(cardBox);
+
+        const myButton2 = new Button({
+            text: `int:${globalStore.state.count}`,
+            className: 'btn btn-primary',
+            callFunc: () => {
+                globalStore.state.count++;
+            }
+        });
+        myButton2.mount(cardBox2);
+
+        const unsub = globalStore.subscribe('count', (newCount) => {
+            myButton.setState({ text: `int:${newCount}` });
+            myButton2.setState({ text: `int:${newCount}` });
+        });
+
     }
 }
 
-// Initialize application on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     const app = new App();
     app.init();
 });
+
