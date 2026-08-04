@@ -3,11 +3,15 @@
     import { appState } from "./lib/store.svelte.js";
 
     const tabs = [
-        { name: "Home", id: "Home" },
-        { name: "Projects", id: "Projects" },
-        { name: "About", id: "About" },
-        { name: "Contact Me", id: "ContactMe" },
-        { name: "Blog", id: "Blog" },
+        { name: "Home", target: "Home" },
+        {
+            name: "Projects",
+            target: [
+                { text: "Project 0", target: "Project0" },
+                { text: "Project 1", target: "Project1" },
+            ],
+        },
+        { name: "About", target: "About" },
     ];
 </script>
 
@@ -15,10 +19,8 @@
     <section class="sidebar">
         <nav class="nav-bar">
             <div class="scroll-container-v">
-                {#each { length: 10 }}
-                    {#each tabs as tab}
-                        <NavButton text={tab.name} target={tab.id} />
-                    {/each}
+                {#each tabs as tab}
+                    <NavButton text={tab.name} target={tab.target} />
                 {/each}
             </div>
         </nav>
@@ -74,4 +76,28 @@
     .scroll-container-v::-webkit-scrollbar {
         width: 0px;
     }
+
+    /* Mobile Responsive Layout (Screens <= 768px) */
+    @media (max-width: 768px) {
+        .layout {
+            flex-direction: column-reverse;
+        }
+
+        .sidebar {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            border-right: none;
+            border-top: 1px solid var(--border);
+        }
+
+        .content {
+            padding: 1.5rem;
+        }
+
+        .scroll-container-v {
+            padding: 0.75rem;
+        }
+    }
 </style>
+
