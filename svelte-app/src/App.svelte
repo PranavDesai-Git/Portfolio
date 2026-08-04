@@ -3,39 +3,75 @@
     import { appState } from "./lib/store.svelte.js";
 
     const tabs = [
-        { name: "Home", id: "home" },
-        { name: "Projects", id: "projects" },
-        { name: "About", id: "about" },
-        { name: "Contact Me", id: "contactme" },
-        { name: "Blog", id: "blog" },
+        { name: "Home", id: "Home" },
+        { name: "Projects", id: "Projects" },
+        { name: "About", id: "About" },
+        { name: "Contact Me", id: "ContactMe" },
+        { name: "Blog", id: "Blog" },
     ];
 </script>
 
-<main>
-    <section id="center">
-        <!-- Horizontal Container -->
+<main class="layout">
+    <section class="sidebar">
         <nav class="nav-bar">
-            {#each tabs as tab}
-                <NavButton text={tab.name} target={tab.id} />
-            {/each}
+            <div class="scroll-container-v">
+                {#each { length: 10 }}
+                    {#each tabs as tab}
+                        <NavButton text={tab.name} target={tab.id} />
+                    {/each}
+                {/each}
+            </div>
         </nav>
-
-        <h1>Active Tab: {appState.activeTab}</h1>
+    </section>
+    <section class="content">
+        <div class="mainContent">
+            <h1>{appState.activeTab}</h1>
+        </div>
     </section>
 </main>
 
 <style>
-    /* Horizontal Container Styling */
-    .nav-bar {
+    .layout {
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75rem;
-        padding: 0.5rem 1rem;
-        background: var(--code-bg, rgba(255, 255, 255, 0.05));
-        border: 1px solid var(--border);
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
+        height: 100vh;
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 280px;
+        flex-shrink: 0;
+        height: 100%;
+        border-right: 1px solid var(--border);
+        box-sizing: border-box;
+    }
+
+    .content {
+        flex: 1;
+        height: 100%;
+        padding: 3rem;
+        box-sizing: border-box;
+        text-align: left;
+        overflow-y: auto;
+    }
+
+    .nav-bar {
+        width: 100%;
+        height: 100%;
+    }
+
+    .scroll-container-v {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 0.5rem 1rem 1rem;
+        box-sizing: border-box;
+    }
+
+    .scroll-container-v::-webkit-scrollbar {
+        width: 0px;
     }
 </style>
