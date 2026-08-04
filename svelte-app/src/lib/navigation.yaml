@@ -1,0 +1,25 @@
+- name: Home
+  target: Home
+
+- name: About
+  target: About
+
+- name: Contact
+  target: ContactPage
+- name: Projects
+  target:
+    - text: Project 0
+      defaultTarget: Project0overview
+      target:
+        - text: overview
+          target: Project0overview
+        - text: tech stack
+          target: Project0/techstack
+    - text: Project 1
+      defaultTarget: Project1overview
+      target:
+        - text: overview
+          target: Project1/overview
+        - text: tech stack
+          target: Project1/techstack
+

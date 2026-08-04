@@ -1,42 +1,74 @@
 <script>
     import NavButton from "./lib/NavButton.svelte";
     import { appState } from "./lib/store.svelte.js";
+    import tabs from "./lib/navigation.yaml";
+    import { fade, fly } from "svelte/transition";
+    import HomePage from "./pages/HomePage.svelte";
 
-    const tabs = [
-        { name: "Home", target: "Home" },
-        {
-            name: "Projects",
-            target: [
-                { text: "Project 0", target: "Project0" },
-                { text: "Project 1", target: "Project1" },
-            ],
-        },
-        { name: "About", target: "About" },
-    ];
+    const pageModules = import.meta.glob("./pages/**/*.svelte", {
+        eager: true,
+    });
+    const pageComponents = {};
+
+    for (const [path, module] of Object.entries(pageModules)) {
+        const rawKey = path.replace("./pages/", "").replace(".svelte", "");
+        pageComponents[rawKey] = module.default;
+        if (rawKey.endsWith("Page")) {
+            pageComponents[rawKey.slice(0, -4)] = module.default;
+        }
+    }
+
+    let ActivePage = $derived(pageComponents[appState.activeTab] || HomePage);
+
+    let isNavCollapsed = $state(false);
 </script>
 
 <main class="layout">
-    <section class="sidebar">
+    <section class="sidebar" class:collapsed={isNavCollapsed}>
+        <button
+            type="button"
+            class="toggle-nav-btn"
+            onclick={() => (isNavCollapsed = !isNavCollapsed)}
+            aria-label="Toggle Navigation"
+        >
+            <span class="toggle-icon"
+                >{isNavCollapsed ? "▲ Menu" : "▼ Hide"}</span
+            >
+        </button>
+
         <nav class="nav-bar">
             <div class="scroll-container-v">
                 {#each tabs as tab}
-                    <NavButton text={tab.name} target={tab.target} />
+                    <NavButton
+                        text={tab.name}
+                        target={tab.target}
+                        defaultTarget={tab.defaultTarget}
+                    />
                 {/each}
             </div>
         </nav>
     </section>
+
     <section class="content">
-        <div class="mainContent">
-            <h1>{appState.activeTab}</h1>
-        </div>
+        {#key appState.activeTab}
+            <div
+                class="mainContent"
+                in:fly={{ y: 15, duration: 250, delay: 120 }}
+                out:fade={{ duration: 120 }}
+            >
+                <ActivePage />
+            </div>
+        {/key}
     </section>
 </main>
 
 <style>
     .layout {
         display: flex;
-        height: 100vh;
+        height: 100%;
         width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
     }
 
     .sidebar {
@@ -44,6 +76,27 @@
         flex-shrink: 0;
         height: 100%;
         border-right: 1px solid var(--border);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .toggle-nav-btn {
+        display: none;
+        width: 100%;
+        height: 36px;
+        flex-shrink: 0;
+        padding: 0.35rem;
+        background: var(--code-bg);
+        border: none;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-h);
+        cursor: pointer;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-align: center;
         box-sizing: border-box;
     }
 
@@ -58,7 +111,9 @@
 
     .nav-bar {
         width: 100%;
-        height: 100%;
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
     }
 
     .scroll-container-v {
@@ -77,22 +132,33 @@
         width: 0px;
     }
 
-    /* Mobile Responsive Layout (Screens <= 768px) */
     @media (max-width: 768px) {
         .layout {
             flex-direction: column-reverse;
         }
 
+        .toggle-nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .sidebar {
             width: 100%;
-            height: auto;
-            max-height: 200px;
+            height: 350px;
+            flex-shrink: 0;
             border-right: none;
             border-top: 1px solid var(--border);
         }
 
+        .sidebar.collapsed {
+            height: 36px;
+        }
+
         .content {
             padding: 1.5rem;
+            flex: 1;
+            min-height: 0;
         }
 
         .scroll-container-v {
@@ -100,4 +166,3 @@
         }
     }
 </style>
-

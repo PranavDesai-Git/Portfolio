@@ -1,8 +1,9 @@
 <script>
     import { appState } from "./store.svelte.js";
     import NavButton from "./NavButton.svelte";
+    import { slide } from "svelte/transition";
 
-    let { text = "NavButton", target } = $props();
+    let { text = "NavButton", target, defaultTarget } = $props();
     let isOpen = $state(false);
 </script>
 
@@ -11,15 +12,25 @@
         <button
             type="button"
             class="nav-btn group-btn"
-            onclick={() => (isOpen = !isOpen)}
+            class:active={defaultTarget && appState.activeTab === defaultTarget}
+            onclick={() => {
+                if (defaultTarget != null) {
+                    appState.activeTab = defaultTarget;
+                }
+                isOpen = !isOpen;
+            }}
         >
             <span>{text}</span>
-            <span class="arrow">{isOpen ? "▾" : "▸"}</span>
+            <span class="arrow" class:open={isOpen}>▸</span>
         </button>
         {#if isOpen}
-            <div class="sub-menu">
+            <div class="sub-menu" transition:slide={{ duration: 200 }}>
                 {#each target as t}
-                    <NavButton text={t.text} target={t.target} />
+                    <NavButton
+                        text={t.text}
+                        target={t.target}
+                        defaultTarget={t.defaultTarget}
+                    />
                 {/each}
             </div>
         {/if}
@@ -40,12 +51,11 @@
 <style>
     .nav-btn {
         width: 100%;
-        padding: 0.75rem 1.25rem;
+        padding: 0.75rem 2rem;
         text-align: left;
         background: transparent;
         color: var(--text);
         border: 1px solid transparent;
-        border-radius: 8px;
         font-size: 0.95rem;
         font-weight: 500;
         cursor: pointer;
@@ -64,7 +74,6 @@
     .nav-btn.active {
         background-color: var(--code-bg);
         color: var(--text-h);
-        border-color: var(--border);
     }
 
     .sub-menu {
@@ -76,5 +85,9 @@
     .arrow {
         font-size: 0.8rem;
         opacity: 0.7;
+        transition: transform 0.2s ease;
+    }
+    .arrow.open {
+        transform: rotate(90deg);
     }
 </style>
