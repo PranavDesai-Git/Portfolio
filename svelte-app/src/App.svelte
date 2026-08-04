@@ -1,15 +1,23 @@
 <script>
     import NavButton from "./lib/NavButton.svelte";
     import { appState } from "./lib/store.svelte.js";
-    import tabs from "./lib/navigation.yaml";
+    import {
+        generateTabsFromFiles,
+        mergeTabsWithYaml,
+    } from "./lib/navigation.js";
+    import yamlTabs from "./lib/navigation.yaml";
     import { fade, fly } from "svelte/transition";
-    import HomePage from "./pages/HomePage.svelte";
+    import HomePage from "./pages/01-HomePage.svelte";
 
     const pageModules = import.meta.glob("./pages/**/*.svelte", {
         eager: true,
     });
-    const pageComponents = {};
 
+    const autoTabs = generateTabsFromFiles(pageModules);
+
+    const tabs = mergeTabsWithYaml(autoTabs, yamlTabs);
+
+    const pageComponents = {};
     for (const [path, module] of Object.entries(pageModules)) {
         const rawKey = path.replace("./pages/", "").replace(".svelte", "");
         pageComponents[rawKey] = module.default;
