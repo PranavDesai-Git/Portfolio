@@ -20,10 +20,17 @@
     const pageComponents = {};
     for (const [path, module] of Object.entries(pageModules)) {
         const rawKey = path.replace("./pages/", "").replace(".svelte", "");
-        pageComponents[rawKey] = module.default;
-        if (rawKey.endsWith("Page")) {
-            pageComponents[rawKey.slice(0, -4)] = module.default;
-        }
+        const cleanKey = rawKey
+            .split("/")
+            .map((part) => {
+                let clean = part.replace(/^\d+-/, "");
+                if (clean.endsWith("Page")) clean = clean.slice(0, -4);
+                return clean;
+            })
+            .join("/");
+
+        pageComponents[cleanKey] = module.default;
+        pageComponents[rawKey] = module.default; // Fallback for raw paths
     }
 
     let ActivePage = $derived(pageComponents[appState.activeTab] || HomePage);

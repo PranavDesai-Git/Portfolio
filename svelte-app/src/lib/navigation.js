@@ -55,13 +55,25 @@ export function generateTabsFromFiles(pageModules) {
         }
 
         const groupName = cleanDisplayName(name);
+
+        // Fallback defaultTarget to overview/index or first child target
+        let defaultTarget = null;
+        const overviewChild = children.find(c => typeof c.target === 'string' && (c.name.toLowerCase() === 'overview' || c.name.toLowerCase() === 'index'));
+        if (overviewChild) {
+            defaultTarget = overviewChild.target;
+        } else if (children.length > 0) {
+            const firstChild = children[0];
+            defaultTarget = typeof firstChild.target === 'string' ? firstChild.target : firstChild.defaultTarget;
+        }
+
         return {
             name: groupName,
             text: groupName,
             target: children,
-            defaultTarget: null
+            defaultTarget: defaultTarget
         };
     }
+
 
     const tabs = [];
 
