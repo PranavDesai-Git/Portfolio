@@ -62,6 +62,7 @@
     .nav-btn {
         width: 100%;
         padding: 0.55rem 0.85rem;
+        min-height: 44px;
         text-align: left;
         background: transparent;
         color: var(--text-secondary);

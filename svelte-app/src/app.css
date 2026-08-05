@@ -18,7 +18,7 @@
 
     --text-main: var(--alabaster-grey);
     --text-secondary: #b0b6c4;
-    --text-muted: #6b8488;
+    --text-muted: #8ba2a5;
     --text-inverse: #000000;
 
     --accent: var(--alabaster-grey);
@@ -40,6 +40,11 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--stormy-teal);
+    outline-offset: 2px;
 }
 
 html,

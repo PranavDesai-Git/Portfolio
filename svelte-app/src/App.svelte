@@ -146,16 +146,18 @@
     .content {
         flex: 1;
         height: 100%;
-        padding: 2.5rem 3rem;
+        padding: 0;
         box-sizing: border-box;
         text-align: left;
         overflow-y: auto;
+        overflow-x: hidden;
         background-color: var(--bg-pitch);
     }
 
     .main-content {
-        max-width: 1100px;
-        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
 
     .nav-bar {
@@ -188,28 +190,33 @@
 
     @media (max-width: 768px) {
         .layout {
-            flex-direction: column-reverse;
+            flex-direction: column;
         }
 
         .toggle-nav-btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0.5rem 0.85rem;
         }
 
         .sidebar {
             width: 100%;
-            height: 300px;
+            height: auto;
+            max-height: 300px;
             flex-shrink: 0;
             border-right: none;
-            border-top: 1px solid var(--border);
-            transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid var(--border);
+            transition: max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .sidebar.collapsed {
-            height: 48px;
+            max-height: 48px;
         }
 
         .content {
-            padding: 1.5rem 1rem;
+            padding: 0;
             flex: 1;
             min-height: 0;
         }

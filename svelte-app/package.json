@@ -9,8 +9,14 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^7.3.1",
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
+    "@lucide/svelte": "^1.28.0",
+    "@modyfi/vite-plugin-yaml": "^1.1.1",
     "@sveltejs/vite-plugin-svelte": "^7.2.0",
+    "lucide-svelte": "^1.0.1",
     "svelte": "^5.56.8",
+    "svelte-fa": "^4.0.4",
     "vite": "^8.2.0"
   }
 }
