@@ -14,7 +14,6 @@
     });
 
     const autoTabs = generateTabsFromFiles(pageModules);
-
     const tabs = mergeTabsWithYaml(autoTabs, yamlTabs);
 
     const pageComponents = {};
@@ -30,29 +29,33 @@
             .join("/");
 
         pageComponents[cleanKey] = module.default;
-        pageComponents[rawKey] = module.default; // Fallback for raw paths
+        pageComponents[rawKey] = module.default;
     }
 
     let ActivePage = $derived(pageComponents[appState.activeTab] || HomePage);
-
     let isNavCollapsed = $state(false);
 </script>
 
 <main class="layout">
-    <section class="sidebar" class:collapsed={isNavCollapsed}>
-        <button
-            type="button"
-            class="toggle-nav-btn"
-            onclick={() => (isNavCollapsed = !isNavCollapsed)}
-            aria-label="Toggle Navigation"
-        >
-            <span class="toggle-icon"
-                >{isNavCollapsed ? "▲ Menu" : "▼ Hide"}</span
+    <aside class="sidebar" class:collapsed={isNavCollapsed}>
+        <div class="sidebar-header">
+            <div class="brand">
+                <span class="dot">●</span>
+                <span class="brand-title">PORTFOLIO</span>
+            </div>
+            <button
+                type="button"
+                class="toggle-nav-btn"
+                onclick={() => (isNavCollapsed = !isNavCollapsed)}
+                aria-label="Toggle Navigation"
             >
-        </button>
+                <span class="toggle-icon">{isNavCollapsed ? "▲ Menu" : "▼ Hide"}</span>
+            </button>
+        </div>
 
         <nav class="nav-bar">
             <div class="scroll-container-v">
+                <div class="nav-section-title">// NAVIGATION</div>
                 {#each tabs as tab}
                     <NavButton
                         text={tab.name}
@@ -62,14 +65,14 @@
                 {/each}
             </div>
         </nav>
-    </section>
+    </aside>
 
     <section class="content">
         {#key appState.activeTab}
             <div
-                class="mainContent"
-                in:fly={{ y: 15, duration: 250, delay: 120 }}
-                out:fade={{ duration: 120 }}
+                class="main-content"
+                in:fly={{ y: 8, duration: 180, delay: 60 }}
+                out:fade={{ duration: 80 }}
             >
                 <ActivePage />
             </div>
@@ -84,10 +87,11 @@
         width: 100%;
         overflow: hidden;
         box-sizing: border-box;
+        background-color: var(--bg-pitch);
     }
 
     .sidebar {
-        width: 280px;
+        width: 250px;
         flex-shrink: 0;
         height: 100%;
         border-right: 1px solid var(--border);
@@ -95,33 +99,63 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: var(--bg-pitch);
+    }
+
+    .sidebar-header {
+        height: 48px;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border);
+        box-sizing: border-box;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: var(--text-secondary);
+    }
+
+    .brand .dot {
+        font-size: 0.6rem;
+        color: var(--accent);
     }
 
     .toggle-nav-btn {
         display: none;
-        width: 100%;
-        height: 36px;
-        flex-shrink: 0;
-        padding: 0.35rem;
-        background: var(--code-bg);
+        background: transparent;
         border: none;
-        border-bottom: 1px solid var(--border);
-        color: var(--text-h);
+        color: var(--text-secondary);
         cursor: pointer;
+        font-family: var(--mono);
         font-size: 0.75rem;
-        font-weight: 600;
-        text-align: center;
-        box-sizing: border-box;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .toggle-nav-btn:hover {
+        color: var(--text-main);
     }
 
     .content {
         flex: 1;
         height: 100%;
-        padding: 3rem;
+        padding: 2.5rem 3rem;
         box-sizing: border-box;
         text-align: left;
         overflow-y: auto;
+        background-color: var(--bg-pitch);
+    }
+
+    .main-content {
+        max-width: 1100px;
+        margin: 0 auto;
     }
 
     .nav-bar {
@@ -138,13 +172,18 @@
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem 0.5rem 1rem 1rem;
+        gap: 0.2rem;
+        padding: 0.85rem 0.5rem;
         box-sizing: border-box;
     }
 
-    .scroll-container-v::-webkit-scrollbar {
-        width: 0px;
+    .nav-section-title {
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        padding: 0.4rem 0.85rem;
+        letter-spacing: 0.05em;
     }
 
     @media (max-width: 768px) {
@@ -153,31 +192,26 @@
         }
 
         .toggle-nav-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
         }
 
         .sidebar {
             width: 100%;
-            height: 350px;
+            height: 300px;
             flex-shrink: 0;
             border-right: none;
             border-top: 1px solid var(--border);
+            transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .sidebar.collapsed {
-            height: 36px;
+            height: 48px;
         }
 
         .content {
-            padding: 1.5rem;
+            padding: 1.5rem 1rem;
             flex: 1;
             min-height: 0;
-        }
-
-        .scroll-container-v {
-            padding: 0.75rem;
         }
     }
 </style>
