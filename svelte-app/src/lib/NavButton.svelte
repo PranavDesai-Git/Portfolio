@@ -68,7 +68,7 @@
         color: var(--text-secondary);
         border: none;
         border-radius: 4px;
-        font-family: var(--mono);
+        font-family: var(--font-sans);
         font-size: 0.85rem;
         font-weight: 500;
         cursor: pointer;
@@ -86,7 +86,7 @@
 
     .nav-btn.active {
         background-color: var(--accent);
-        color: #000000;
+        color: var(--text-inverse);
         font-weight: 600;
     }
 
@@ -122,11 +122,11 @@
 
     .arrow.open {
         transform: rotate(90deg);
-        color: var(--alabaster-grey);
+        color: var(--text-main);
     }
 
     .nav-btn.active .arrow,
     .nav-btn.active :global(.nav-icon) {
-        color: #000000;
+        color: var(--text-inverse);
     }
 </style>

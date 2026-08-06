@@ -116,10 +116,10 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 0.05em;
+        font-family: var(--font-heading);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
         color: var(--text-secondary);
     }
 
@@ -134,8 +134,8 @@
         border: none;
         color: var(--text-secondary);
         cursor: pointer;
-        font-family: var(--mono);
-        font-size: 0.75rem;
+        font-family: var(--font-sans);
+        font-size: 0.8rem;
         padding: 0.25rem 0.5rem;
     }
 
@@ -180,12 +180,13 @@
     }
 
     .nav-section-title {
-        font-family: var(--mono);
+        font-family: var(--font-heading);
         font-size: 0.7rem;
-        font-weight: 600;
+        font-weight: 700;
         color: var(--text-muted);
         padding: 0.4rem 0.85rem;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
     }
 
     @media (max-width: 768px) {

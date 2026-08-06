@@ -17,8 +17,6 @@
         faArrowRight,
         faGamepad,
         faBrain,
-        faServer,
-        faFileCode,
     } from "@fortawesome/free-solid-svg-icons";
     import {
         faGithub,
@@ -27,6 +25,7 @@
         faGolang,
         faRust,
         faPython,
+        faJava,
         faGitAlt,
         faLinux,
         faAndroid,
@@ -126,26 +125,13 @@
                     <Fa icon={faCode} size="0.9x" class="cat-icon" /> LANGUAGES
                 </div>
                 <div class="skills-list">
+                    <span class="skill-item"><Fa icon={faCode} class="skill-icon" /> C++</span>
                     <span class="skill-item"><Fa icon={faGolang} class="skill-icon" /> Go</span>
                     <span class="skill-item"><Fa icon={faRust} class="skill-icon" /> Rust</span>
-                    <span class="skill-item"><Fa icon={faCode} class="skill-icon" /> C</span>
-                    <span class="skill-item"><Fa icon={faCode} class="skill-icon" /> C++</span>
-                    <span class="skill-item"><Fa icon={faMicrochip} class="skill-icon" /> Assembly</span>
-                    <span class="skill-item"><Fa icon={faAndroid} class="skill-icon" /> Kotlin</span>
+                    <span class="skill-item"><Fa icon={faJava} class="skill-icon" /> Java</span>
                     <span class="skill-item"><Fa icon={faPython} class="skill-icon" /> Python</span>
-                    <span class="skill-item"><Fa icon={faGamepad} class="skill-icon" /> GDScript</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <div class="category-name">
-                    <Fa icon={faLayerGroup} size="0.9x" class="cat-icon" /> FRAMEWORKS & LIBS
-                </div>
-                <div class="skills-list">
-                    <span class="skill-item"><Fa icon={faServer} class="skill-icon" /> Reqwest</span>
-                    <span class="skill-item"><Fa icon={faTerminal} class="skill-icon" /> Bubble Tea</span>
-                    <span class="skill-item"><Fa icon={faTerminal} class="skill-icon" /> Lipgloss</span>
-                    <span class="skill-item"><Fa icon={faAndroid} class="skill-icon" /> Jetpack Compose</span>
-                    <span class="skill-item"><Fa icon={faPython} class="skill-icon" /> Flask</span>
+                    <span class="skill-item"><Fa icon={faCode} class="skill-icon" /> C</span>
+                    <span class="skill-item"><Fa icon={faMicrochip} class="skill-icon" /> Assembly</span>
                     <span class="skill-item"><Fa icon={faGamepad} class="skill-icon" /> Godot</span>
                 </div>
             </div>
@@ -158,8 +144,6 @@
                     <span class="skill-item"><Fa icon={faLinux} class="skill-icon" /> Linux / POSIX</span>
                     <span class="skill-item"><Fa icon={faBrain} class="skill-icon" /> Ollama</span>
                     <span class="skill-item"><Fa icon={faGlobe} class="skill-icon" /> REST APIs</span>
-                    <span class="skill-item"><Fa icon={faCamera} class="skill-icon" /> CameraX</span>
-                    <span class="skill-item"><Fa icon={faFileCode} class="skill-icon" /> Trafilatura</span>
                 </div>
             </div>
         </div>
@@ -472,7 +456,7 @@
     .hero-image-banner {
         position: relative;
         width: 100%;
-        height: 380px;
+        height: clamp(200px, 32vw, 540px);
         margin: 0;
         overflow: hidden;
     }
@@ -484,13 +468,14 @@
         object-position: center;
         transform: scaleY(-1);
         display: block;
+        transition: transform 0.4s ease;
     }
 
     .page-body {
         display: flex;
         flex-direction: column;
-        gap: 4.5rem;
-        padding: 3.5rem 3rem 4.5rem 3rem;
+        gap: 6.5rem;
+        padding: 0.85rem 3rem 6rem 3rem;
         box-sizing: border-box;
         width: 100%;
     }
@@ -499,8 +484,11 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 1.25rem;
+        gap: 0.75rem;
         width: 100%;
+        margin-top: -4.5rem;
+        position: relative;
+        z-index: 2;
     }
 
     .name-row {
@@ -510,20 +498,23 @@
     }
 
     .name-title {
+        font-family: var(--font-heading);
         font-size: 3.5rem;
-        font-weight: 800;
-        letter-spacing: -0.03em;
+        font-weight: 700;
+        letter-spacing: -0.02em;
         line-height: 1.05;
         color: var(--text-main);
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.8);
         margin: 0;
     }
 
     .role-subtitle {
-        font-family: var(--mono);
-        font-size: 1.25rem;
+        font-family: var(--font-sans);
+        font-size: 1.15rem;
         font-weight: 500;
-        color: var(--alabaster-grey);
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+        letter-spacing: -0.01em;
+        color: var(--text-main);
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
         margin: 0;
     }
 
@@ -532,8 +523,8 @@
         flex-direction: column;
         gap: 0.75rem;
         margin-top: 0.5rem;
-        font-family: var(--mono);
-        font-size: 0.95rem;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
     }
 
     .meta-row {
@@ -583,30 +574,35 @@
     .icon-btn:hover {
         background-color: var(--accent);
         border-color: var(--accent);
-        color: #000000;
+        color: var(--text-inverse);
     }
 
     /* Section Headings */
     .section {
         display: flex;
         flex-direction: column;
-        gap: 1.25rem;
+        gap: 1.5rem;
+    }
+
+    .overview-section {
+        margin-top: 3.5rem;
     }
 
     .section-heading {
-        font-family: var(--mono);
-        font-size: 0.82rem;
-        font-weight: 600;
+        font-family: var(--font-heading);
+        font-size: 0.85rem;
+        font-weight: 700;
         color: var(--text-muted);
         letter-spacing: 0.08em;
         margin: 0;
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        text-transform: uppercase;
     }
 
     :global(.heading-icon) {
-        color: var(--alabaster-grey);
+        color: var(--text-main);
     }
 
     :global(.cat-icon) {
@@ -614,7 +610,7 @@
     }
 
     :global(.proj-icon) {
-        color: var(--alabaster-grey);
+        color: var(--text-main);
         flex-shrink: 0;
     }
 
@@ -647,10 +643,10 @@
     }
 
     .category-name {
-        font-family: var(--mono);
-        font-size: 1rem;
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
         font-weight: 700;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.06em;
         color: var(--text-main);
         display: flex;
         align-items: center;
@@ -668,9 +664,9 @@
     }
 
     .skill-item {
-        font-family: var(--mono);
-        font-size: 1.15rem;
-        font-weight: 700;
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        font-weight: 500;
         color: var(--text-secondary);
         display: inline-flex;
         align-items: center;
@@ -680,7 +676,7 @@
     }
 
     .skill-item:hover {
-        color: var(--alabaster-grey);
+        color: var(--text-main);
     }
 
     :global(.skill-icon) {
@@ -690,7 +686,7 @@
     }
 
     .skill-item:hover :global(.skill-icon) {
-        color: var(--alabaster-grey);
+        color: var(--text-main);
         opacity: 1;
     }
 
@@ -760,16 +756,18 @@
     }
 
     .project-title {
-        font-size: 1.2rem;
-        font-weight: 600;
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 700;
         margin: 0;
         letter-spacing: -0.01em;
         color: var(--text-main);
     }
 
     .project-sub {
-        font-family: var(--mono);
+        font-family: var(--font-sans);
         font-size: 0.85rem;
+        font-weight: 500;
         color: var(--text-secondary);
         display: block;
         margin-top: 0.15rem;
@@ -801,7 +799,7 @@
     }
 
     .mini-tag {
-        font-family: var(--mono);
+        font-family: var(--font-mono);
         font-size: 0.72rem;
         font-weight: 500;
         color: var(--text-main);
@@ -820,10 +818,11 @@
     }
 
     .view-btn {
-        font-family: var(--mono);
+        font-family: var(--font-sans);
         font-size: 0.82rem;
         font-weight: 600;
-        color: #000000;
+        letter-spacing: 0.01em;
+        color: var(--text-inverse);
         background-color: var(--accent);
         border: none;
         padding: 0.45rem 0.85rem;
@@ -840,8 +839,8 @@
     }
 
     .view-btn:hover {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: var(--text-main);
+        color: var(--text-inverse);
     }
 
     .view-btn.repo-btn {
@@ -853,7 +852,7 @@
     .view-btn.repo-btn:hover {
         background-color: var(--accent);
         border-color: var(--accent);
-        color: #000000;
+        color: var(--text-inverse);
     }
 
     .bullet-list {
@@ -873,24 +872,26 @@
 
     /* Experience Specific */
     .exp-role {
-        font-size: 1.15rem;
-        font-weight: 600;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        font-weight: 700;
         margin: 0;
         color: var(--text-main);
     }
 
     .exp-company {
-        font-family: var(--mono);
-        font-size: 0.85rem;
+        font-family: var(--font-sans);
+        font-size: 0.88rem;
+        font-weight: 500;
         color: var(--text-secondary);
         margin-top: 0.15rem;
     }
 
     .exp-date {
-        font-family: var(--mono);
-        font-size: 0.78rem;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
         font-weight: 600;
-        color: #000000;
+        color: var(--text-inverse);
         background-color: var(--accent);
         padding: 0.2rem 0.6rem;
         border-radius: 4px;
@@ -914,13 +915,13 @@
     }
 
     @media (max-width: 640px) {
-        .hero-image-banner {
-            height: 220px;
+        .page-body {
+            padding: 0.5rem 1.25rem 4rem 1.25rem;
+            gap: 3.5rem;
         }
 
-        .page-body {
-            padding: 1.5rem 1.25rem 2.5rem 1.25rem;
-            gap: 2rem;
+        .hero-text-content {
+            margin-top: -3.25rem;
         }
 
         .name-title {

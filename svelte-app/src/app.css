@@ -27,12 +27,18 @@
     --accent-olive: var(--olive);
     --accent-teal: var(--stormy-teal);
 
-    /* Fonts */
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    /* Typography Tokens */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-    font: 16px/1.6 var(--sans);
-    letter-spacing: -0.01em;
+    /* Semantic Typography Aliases */
+    --sans: var(--font-sans);
+    --heading: var(--font-heading);
+    --mono: var(--font-mono);
+
+    font: 16px/1.65 var(--font-sans);
+    letter-spacing: -0.011em;
     color-scheme: dark;
     color: var(--text-main);
     background: var(--bg-pitch);
@@ -85,5 +91,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--grey);
+    background: var(--alabaster-grey);
 }
