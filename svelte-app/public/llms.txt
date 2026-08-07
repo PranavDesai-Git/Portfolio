@@ -1,0 +1,27 @@
+# Pranav Desai - Systems & Backend Engineer
+
+This is the portfolio of Pranav Desai, a backend and systems engineer specializing in low-level architecture, Rust, Go, C, C++, and distributed systems. 
+
+## About
+- **Location:** Hyderabad, India
+- **Email:** contact.pranavdesai@gmail.com
+- **GitHub:** https://github.com/PranavDesai-Git
+- **LinkedIn:** https://www.linkedin.com/in/pranav-desai-542961385/
+- **X (Twitter):** https://x.com/prnvdsi
+
+I am currently a 2nd year Computer Science and Engineering student. I have been programming since age 12, starting with game development and expanding into systems programming. I build low-level systems, Git engines, network protocols, local AI pipelines, and compilers.
+
+## Skills
+- **Languages:** C++, Go, Rust, Java, Python, C, Assembly, Godot
+- **Tools & Infra:** Git, Linux / POSIX, Ollama, REST APIs
+
+## Featured Projects
+- **Rugit:** Custom version control engine built in Rust replicating Git's plumbing architecture, SHA-1/Zlib object storage, binary `.git/index` staging parser, and Git Smart HTTP wire protocol.
+- **qLog:** Terminal user interface built in Go using Charm Bubble Tea, integrating a local dual-model AI pipeline via Ollama (Qwen & Gemma) for automated agenda summary generation.
+- **OllaNews:** Data pipeline built in Python/Flask to aggregate Google News feeds, extract raw HTML using Trafilatura, and generate single-paragraph article summaries locally via Ollama.
+- **Wimp:** Native Android app in Kotlin using Jetpack Compose and CameraX to process raw YUV camera frame bytes for real-time luminance tracking and plant taxonomy identification.
+- **16-Bit Assembler:** Lightweight assembler written in C compiling text assembly mnemonics into executable binary machine code for a custom 42-instruction architecture.
+
+## Experience
+- **Game Development Intern at Darkcity Atelier** (Feb 2026 – May 2026): Sole engineer for a native Android mobile game, writing 10k+ lines of GDScript across 5 core gameplay systems.
+- **Software Club Lead at G Electra Software Club** (Jul 2025 – Present): Led engineering team across 14 software releases over 14 months.
