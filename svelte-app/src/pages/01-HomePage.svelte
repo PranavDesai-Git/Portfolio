@@ -31,6 +31,7 @@
         faAndroid,
     } from "@fortawesome/free-brands-svg-icons";
     import { appState } from "../lib/store.svelte.js";
+    import GithubGraph from "../lib/GithubGraph.svelte";
     import heroBg from "../assets/herobackground.jpg";
 </script>
 
@@ -145,6 +146,14 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Contribution Graph -->
+        <section class="section github-section">
+            <h2 class="section-heading">
+                <Fa icon={faGithub} size="1x" class="heading-icon" /> Commit Activity
+            </h2>
+            <GithubGraph />
         </section>
 
         <!-- Projects -->
