@@ -41,7 +41,7 @@
 
 <div class="page-container">
     <div class="hero-image-banner">
-        <img src={heroBg} alt="Hero Banner" class="hero-banner-img" fetchpriority="high" decoding="sync" />
+        <img src={heroBg} alt="Hero Banner" class="hero-banner-img" fetchpriority="high" decoding="async" />
     </div>
 
     <div class="page-body">
@@ -578,7 +578,7 @@
     }
 
     .meta-label {
-        color: #737373;
+        color: #A3A3A3;
         font-weight: 500;
     }
 
@@ -638,7 +638,7 @@
         font-family: var(--font-mono);
         font-size: 0.85rem;
         font-weight: 600;
-        color: #737373;
+        color: #A3A3A3;
         letter-spacing: 0.05em;
         margin: 0;
         display: flex;
@@ -686,7 +686,7 @@
     }
 
     :global(.cat-icon) {
-        color: #737373;
+        color: #A3A3A3;
         font-size: 0.8rem;
     }
 
@@ -717,7 +717,7 @@
     }
 
     :global(.skill-icon) {
-        color: #737373;
+        color: #A3A3A3;
         font-size: 1.1em;
     }
 
@@ -797,7 +797,7 @@
         font-family: var(--font-sans);
         font-size: 0.9rem;
         font-weight: 500;
-        color: #737373;
+        color: #A3A3A3;
         display: block;
         margin-top: 4px;
     }
@@ -923,7 +923,7 @@
         font-family: var(--font-mono);
         font-size: 0.8rem;
         font-weight: 500;
-        color: #737373;
+        color: #A3A3A3;
         background-color: rgba(255, 255, 255, 0.05);
         padding: 6px 12px;
         border-radius: 4px;
@@ -942,7 +942,7 @@
     }
 
     .bullet-list li::marker {
-        color: #737373;
+        color: #A3A3A3;
     }
 
     /* Responsive */

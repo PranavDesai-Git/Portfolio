@@ -176,7 +176,7 @@
     .month-label {
         font-family: var(--font-mono);
         font-size: 0.8rem;
-        color: #737373;
+        color: #A3A3A3;
     }
 
     .grid {
@@ -219,7 +219,7 @@
         gap: 6px;
         font-family: var(--font-mono);
         font-size: 0.75rem;
-        color: #737373;
+        color: #A3A3A3;
         margin-top: 24px;
     }
 
@@ -325,6 +325,6 @@
     .commit-time {
         font-family: var(--font-mono);
         font-size: 0.75rem;
-        color: #737373;
+        color: #A3A3A3;
     }
 </style>
