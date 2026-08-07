@@ -32,12 +32,16 @@
     } from "@fortawesome/free-brands-svg-icons";
     import { appState } from "../lib/store.svelte.js";
     import GithubGraph from "../lib/GithubGraph.svelte";
-    import heroBg from "../assets/herobackground.jpg";
+    import heroBg from "../assets/herobackground.webp";
 </script>
+
+<svelte:head>
+    <link rel="preload" as="image" href={heroBg} type="image/webp" fetchpriority="high" />
+</svelte:head>
 
 <div class="page-container">
     <div class="hero-image-banner">
-        <img src={heroBg} alt="Hero Banner" class="hero-banner-img" />
+        <img src={heroBg} alt="Hero Banner" class="hero-banner-img" fetchpriority="high" decoding="sync" />
     </div>
 
     <div class="page-body">
