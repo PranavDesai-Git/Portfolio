@@ -1,5 +1,8 @@
 # Pranav Desai - Backend & Systems Engineer Portfolio
 
+
+## live on: https://pranavdesai.vercel.app
+
 > A minimal, high-performance, terminal-inspired portfolio built to showcase low-level systems, data pipelines, and backend architectures.
 
 ## Overview
@@ -44,4 +47,3 @@ npm run dev
 - **X/Twitter:** [@prnvdsi](https://x.com/prnvdsi)
 
 ---
-*Built with 0% AI UI slop and 100% intentionality.*
