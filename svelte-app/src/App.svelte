@@ -41,10 +41,32 @@
         if (window.innerWidth <= 768) {
             isNavCollapsed = true;
         }
+
+        const handlePopState = () => {
+            let path = window.location.pathname;
+            // Strip leading and trailing slashes
+            path = path.replace(/^\/+|\/+$/g, '');
+            if (path === '') {
+                appState.activeTab = 'Home';
+            } else {
+                appState.activeTab = path;
+            }
+        };
+
+        window.addEventListener('popstate', handlePopState);
+        handlePopState(); // Trigger on initial load to support direct links
+
+        return () => window.removeEventListener('popstate', handlePopState);
     });
 
     $effect(() => {
-        appState.activeTab; // Track changes to the active tab
+        const currentTab = appState.activeTab;
+        const targetPath = currentTab === 'Home' ? '/' : `/${currentTab}`;
+        
+        if (window.location.pathname !== targetPath) {
+            window.history.pushState(null, '', targetPath);
+        }
+
         if (window.innerWidth <= 768) {
             isNavCollapsed = true;
         }
