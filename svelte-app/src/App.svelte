@@ -32,8 +32,23 @@
         pageComponents[rawKey] = module.default;
     }
 
+    import { onMount } from "svelte";
+    
     let ActivePage = $derived(pageComponents[appState.activeTab] || HomePage);
     let isNavCollapsed = $state(false);
+
+    onMount(() => {
+        if (window.innerWidth <= 768) {
+            isNavCollapsed = true;
+        }
+    });
+
+    $effect(() => {
+        appState.activeTab; // Track changes to the active tab
+        if (window.innerWidth <= 768) {
+            isNavCollapsed = true;
+        }
+    });
 </script>
 
 <main class="layout">

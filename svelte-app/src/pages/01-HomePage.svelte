@@ -35,13 +35,11 @@
 </script>
 
 <div class="page-container">
-    <!-- Hero Image Banner -->
     <div class="hero-image-banner">
         <img src={heroBg} alt="Hero Banner" class="hero-banner-img" />
     </div>
 
     <div class="page-body">
-        <!-- Hero Text -->
         <header class="hero-text-content">
             <div class="name-row">
                 <h1 class="name-title">Pranav Desai</h1>
@@ -72,7 +70,7 @@
                                 href="https://github.com/PranavDesai-Git"
                                 target="_blank"
                                 rel="noreferrer"
-                                class="link icon-btn"
+                                class="icon-btn"
                             >
                                 <Fa icon={faGithub} size="0.85x" /> GitHub
                             </a>
@@ -80,7 +78,7 @@
                                 href="https://www.linkedin.com/in/pranav-desai-542961385/"
                                 target="_blank"
                                 rel="noreferrer"
-                                class="link icon-btn"
+                                class="icon-btn"
                             >
                                 <Fa icon={faLinkedinIn} size="0.85x" /> LinkedIn
                             </a>
@@ -88,7 +86,7 @@
                                 href="https://x.com/prnvdsi"
                                 target="_blank"
                                 rel="noreferrer"
-                                class="link icon-btn"
+                                class="icon-btn"
                             >
                                 <Fa icon={faXTwitter} size="0.85x" /> X
                             </a>
@@ -98,365 +96,392 @@
             </div>
         </header>
 
-    <!-- Overview Section -->
-    <section class="section overview-section">
-        <h2 class="section-heading">
-            <Fa icon={faFileLines} size="1x" class="heading-icon" /> // OVERVIEW
-        </h2>
-        <div class="overview-content">
-            <p>
-                Computer Science and Engineering student (2nd year). Building
-                low-level systems, Git engines, network protocols, local AI
-                pipelines, and compilers. Programming since age 12, starting
-                with game development in GDScript and expanding into Rust, Go,
-                C, and Assembly.
-            </p>
-        </div>
-    </section>
+        <!-- Overview Section -->
+        <section class="section overview-section">
+            <h2 class="section-heading">
+                <Fa icon={faFileLines} size="1x" class="heading-icon" /> Overview
+            </h2>
+            <div class="overview-content">
+                <p>
+                    Computer Science and Engineering student (2nd year). Building
+                    low-level systems, Git engines, network protocols, local AI
+                    pipelines, and compilers. Programming since age 12, starting
+                    with game development in GDScript and expanding into Rust, Go,
+                    C, and Assembly.
+                </p>
+            </div>
+        </section>
 
-    <!-- Skills Section -->
-    <section class="section skills-section">
-        <h2 class="section-heading">
-            <Fa icon={faLayerGroup} size="1x" class="heading-icon" /> // SKILLS
-        </h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <div class="category-name">
-                    <Fa icon={faCode} size="0.9x" class="cat-icon" /> LANGUAGES
+        <!-- Skills Section -->
+        <section class="section skills-section">
+            <h2 class="section-heading">
+                <Fa icon={faLayerGroup} size="1x" class="heading-icon" /> Skills
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-name">
+                        <Fa icon={faCode} size="0.9x" class="cat-icon" /> Languages
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-item"><Fa icon={faCode} class="skill-icon" /> C++</span>
+                        <span class="skill-item"><Fa icon={faGolang} class="skill-icon" /> Go</span>
+                        <span class="skill-item"><Fa icon={faRust} class="skill-icon" /> Rust</span>
+                        <span class="skill-item"><Fa icon={faJava} class="skill-icon" /> Java</span>
+                        <span class="skill-item"><Fa icon={faPython} class="skill-icon" /> Python</span>
+                        <span class="skill-item"><Fa icon={faCode} class="skill-icon" /> C</span>
+                        <span class="skill-item"><Fa icon={faMicrochip} class="skill-icon" /> Assembly</span>
+                        <span class="skill-item"><Fa icon={faGamepad} class="skill-icon" /> Godot</span>
+                    </div>
                 </div>
-                <div class="skills-list">
-                    <span class="skill-item"><Fa icon={faCode} class="skill-icon" /> C++</span>
-                    <span class="skill-item"><Fa icon={faGolang} class="skill-icon" /> Go</span>
-                    <span class="skill-item"><Fa icon={faRust} class="skill-icon" /> Rust</span>
-                    <span class="skill-item"><Fa icon={faJava} class="skill-icon" /> Java</span>
-                    <span class="skill-item"><Fa icon={faPython} class="skill-icon" /> Python</span>
-                    <span class="skill-item"><Fa icon={faCode} class="skill-icon" /> C</span>
-                    <span class="skill-item"><Fa icon={faMicrochip} class="skill-icon" /> Assembly</span>
-                    <span class="skill-item"><Fa icon={faGamepad} class="skill-icon" /> Godot</span>
+                <div class="skill-category">
+                    <div class="category-name">
+                        <Fa icon={faWrench} size="0.9x" class="cat-icon" /> Tools & Infra
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-item"><Fa icon={faGitAlt} class="skill-icon" /> Git</span>
+                        <span class="skill-item"><Fa icon={faLinux} class="skill-icon" /> Linux / POSIX</span>
+                        <span class="skill-item"><Fa icon={faBrain} class="skill-icon" /> Ollama</span>
+                        <span class="skill-item"><Fa icon={faGlobe} class="skill-icon" /> REST APIs</span>
+                    </div>
                 </div>
             </div>
-            <div class="skill-category">
-                <div class="category-name">
-                    <Fa icon={faWrench} size="0.9x" class="cat-icon" /> TOOLS & INFRA
-                </div>
-                <div class="skills-list">
-                    <span class="skill-item"><Fa icon={faGitAlt} class="skill-icon" /> Git</span>
-                    <span class="skill-item"><Fa icon={faLinux} class="skill-icon" /> Linux / POSIX</span>
-                    <span class="skill-item"><Fa icon={faBrain} class="skill-icon" /> Ollama</span>
-                    <span class="skill-item"><Fa icon={faGlobe} class="skill-icon" /> REST APIs</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects -->
-    <section class="section projects-section">
-        <h2 class="section-heading">
-            <Fa icon={faCode} size="1x" class="heading-icon" /> // FEATURED PROJECTS
-        </h2>
-        <div class="projects-grid">
-            <!-- Rugit -->
-            <article class="project-item">
-                <div class="card-header">
-                    <div class="title-with-icon">
-                        <Fa icon={faCodeBranch} size="1.2x" class="proj-icon" />
-                        <div>
-                            <h3 class="project-title">Rugit</h3>
-                            <span class="project-sub"
-                                >Custom Git Version Control Engine</span
-                            >
-                        </div>
-                    </div>
-                </div>
-                <p class="teaser-text">
-                    Custom version control engine built in Rust. Replicates
-                    Git's plumbing architecture, SHA-1/Zlib object storage,
-                    binary <code>.git/index</code> staging parser, and Git Smart
-                    HTTP wire protocol.
-                </p>
-                <div class="card-footer">
-                    <div class="project-tags">
-                        <span class="mini-tag">Rust</span>
-                        <span class="mini-tag">Reqwest</span>
-                        <span class="mini-tag">Flate2</span>
-                        <span class="mini-tag">SHA-1</span>
-                    </div>
-                    <div class="action-btns">
-                        <button
-                            type="button"
-                            class="view-btn"
-                            onclick={() => (appState.activeTab = "projects/Rugit")}
-                        >
-                            View Spec <Fa icon={faArrowRight} size="0.8x" />
-                        </button>
-                        <a
-                            href="https://github.com/PranavDesai-Git/rugit"
-                            target="_blank"
-                            rel="noreferrer"
-                            class="view-btn repo-btn"
-                        >
-                            View Repo <Fa icon={faArrowRight} size="0.8x" />
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- qLog -->
-            <article class="project-item">
-                <div class="card-header">
-                    <div class="title-with-icon">
-                        <Fa icon={faTerminal} size="1.2x" class="proj-icon" />
-                        <div>
-                            <h3 class="project-title">qLog</h3>
-                            <span class="project-sub"
-                                >Local AI-Driven Project Management TUI</span
-                            >
-                        </div>
-                    </div>
-                </div>
-                <p class="teaser-text">
-                    Terminal user interface built in Go using Charm Bubble Tea.
-                    Integrates a local dual-model AI pipeline via Ollama (Qwen &
-                    Gemma) for automated agenda summary generation.
-                </p>
-                <div class="card-footer">
-                    <div class="project-tags">
-                        <span class="mini-tag">Go</span>
-                        <span class="mini-tag">Bubble Tea</span>
-                        <span class="mini-tag">Lipgloss</span>
-                        <span class="mini-tag">Ollama</span>
-                    </div>
-                    <div class="action-btns">
-                        <button
-                            type="button"
-                            class="view-btn"
-                            onclick={() => (appState.activeTab = "projects/qLog")}
-                        >
-                            View Spec <Fa icon={faArrowRight} size="0.8x" />
-                        </button>
-                        <a
-                            href="https://github.com/PranavDesai-Git/qlog"
-                            target="_blank"
-                            rel="noreferrer"
-                            class="view-btn repo-btn"
-                        >
-                            View Repo <Fa icon={faArrowRight} size="0.8x" />
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- OllaNews -->
-            <article class="project-item">
-                <div class="card-header">
-                    <div class="title-with-icon">
-                        <Fa icon={faGlobe} size="1.2x" class="proj-icon" />
-                        <div>
-                            <h3 class="project-title">OllaNews</h3>
-                            <span class="project-sub"
-                                >Local AI News Aggregator & Pipeline</span
-                            >
-                        </div>
-                    </div>
-                </div>
-                <p class="teaser-text">
-                    Data pipeline built in Python/Flask to aggregate Google News
-                    feeds, extract raw HTML using Trafilatura, and generate
-                    single-paragraph article summaries locally via Ollama.
-                </p>
-                <div class="card-footer">
-                    <div class="project-tags">
-                        <span class="mini-tag">Python</span>
-                        <span class="mini-tag">Flask</span>
-                        <span class="mini-tag">Ollama</span>
-                        <span class="mini-tag">JavaScript</span>
-                    </div>
-                    <div class="action-btns">
-                        <button
-                            type="button"
-                            class="view-btn"
-                            onclick={() =>
-                                (appState.activeTab = "projects/OllaNews")}
-                        >
-                            View Spec <Fa icon={faArrowRight} size="0.8x" />
-                        </button>
-                        <a
-                            href="https://github.com/PranavDesai-Git/ollanews"
-                            target="_blank"
-                            rel="noreferrer"
-                            class="view-btn repo-btn"
-                        >
-                            View Repo <Fa icon={faArrowRight} size="0.8x" />
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Wimp -->
-            <article class="project-item">
-                <div class="card-header">
-                    <div class="title-with-icon">
-                        <Fa icon={faCamera} size="1.2x" class="proj-icon" />
-                        <div>
-                            <h3 class="project-title">Wimp</h3>
-                            <span class="project-sub"
-                                >Android Botanical Vision Application</span
-                            >
-                        </div>
-                    </div>
-                </div>
-                <p class="teaser-text">
-                    Native Android app in Kotlin using Jetpack Compose and
-                    CameraX to process raw YUV camera frame bytes for real-time
-                    luminance tracking and plant taxonomy identification.
-                </p>
-                <div class="card-footer">
-                    <div class="project-tags">
-                        <span class="mini-tag">Kotlin</span>
-                        <span class="mini-tag">Compose</span>
-                        <span class="mini-tag">Coroutines</span>
-                    </div>
-                    <div class="action-btns">
-                        <button
-                            type="button"
-                            class="view-btn"
-                            onclick={() => (appState.activeTab = "projects/Wimp")}
-                        >
-                            View Spec <Fa icon={faArrowRight} size="0.8x" />
-                        </button>
-                        <a
-                            href="https://github.com/PranavDesai-Git/wimp"
-                            target="_blank"
-                            rel="noreferrer"
-                            class="view-btn repo-btn"
-                        >
-                            View Repo <Fa icon={faArrowRight} size="0.8x" />
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 16-Bit Assembler -->
-            <article class="project-item">
-                <div class="card-header">
-                    <div class="title-with-icon">
-                        <Fa icon={faMicrochip} size="1.2x" class="proj-icon" />
-                        <div>
-                            <h3 class="project-title">
-                                Custom 16-Bit Assembler
-                            </h3>
-                            <span class="project-sub"
-                                >Low-Level Systems & Binary I/O</span
-                            >
-                        </div>
-                    </div>
-                </div>
-                <p class="teaser-text">
-                    Lightweight assembler written in C. Compiles text assembly
-                    mnemonics into executable binary machine code for a custom
-                    42-instruction architecture using a single-pass lookup
-                    table.
-                </p>
-                <div class="card-footer">
-                    <div class="project-tags">
-                        <span class="mini-tag">C</span>
-                        <span class="mini-tag">Assembly</span>
-                        <span class="mini-tag">Binary I/O</span>
-                    </div>
-                    <div class="action-btns">
-                        <button
-                            type="button"
-                            class="view-btn"
-                            onclick={() =>
-                                (appState.activeTab = "projects/Assembler")}
-                        >
-                            View Spec <Fa icon={faArrowRight} size="0.8x" />
-                        </button>
-                        <a
-                            href="https://github.com/PranavDesai-Git"
-                            target="_blank"
-                            rel="noreferrer"
-                            class="view-btn repo-btn"
-                        >
-                            View Repo <Fa icon={faArrowRight} size="0.8x" />
-                        </a>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- Experience -->
-    <section class="section experience-section">
-        <h2 class="section-heading">
-            <Fa icon={faBriefcase} size="1x" class="heading-icon" /> // EXPERIENCE
-        </h2>
-        <div class="exp-list">
-            <!-- Darkcity Atelier -->
-            <article class="exp-item">
-                <div class="card-header">
-                    <div class="title-with-icon">
-                        <Fa icon={faBriefcase} size="1.2x" class="proj-icon" />
-                        <div>
-                            <h3 class="exp-role">Game Development Intern</h3>
-                            <div class="exp-company">Darkcity Atelier</div>
-                        </div>
-                    </div>
-                    <span class="exp-date">Feb 2026 – May 2026</span>
-                </div>
-                <ul class="bullet-list">
-                    <li>
-                        Sole engineer for a native Android mobile game, writing
-                        10k+ lines of GDScript across 5 core gameplay systems.
-                    </li>
-                    <li>
-                        Optimized touch-input and game physics to achieve 120
-                        FPS across 15+ Android test devices.
-                    </li>
-                </ul>
-            </article>
-
-            <!-- G Electra Software Club -->
-            <article class="exp-item">
-                <div class="card-header">
-                    <div class="title-with-icon">
-                        <Fa icon={faUsers} size="1.2x" class="proj-icon" />
-                        <div>
-                            <h3 class="exp-role">Software Club Lead</h3>
-                            <div class="exp-company">
-                                G Electra Software Club
+        <!-- Projects -->
+        <section class="section projects-section">
+            <h2 class="section-heading">
+                <Fa icon={faCode} size="1x" class="heading-icon" /> Featured Projects
+            </h2>
+            <div class="projects-grid">
+                <!-- Rugit -->
+                <article class="project-item">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="title-with-icon">
+                                <div class="icon-wrapper">
+                                    <Fa icon={faCodeBranch} size="1.1x" class="proj-icon" />
+                                </div>
+                                <div>
+                                    <h3 class="project-title">Rugit</h3>
+                                    <span class="project-sub">Custom Git Version Control Engine</span>
+                                </div>
                             </div>
                         </div>
+                        <p class="teaser-text">
+                            Custom version control engine built in Rust. Replicates
+                            Git's plumbing architecture, SHA-1/Zlib object storage,
+                            binary <code>.git/index</code> staging parser, and Git Smart
+                            HTTP wire protocol.
+                        </p>
                     </div>
-                    <span class="exp-date">Jul 2025 – Present</span>
-                </div>
-                <ul class="bullet-list">
-                    <li>
-                        Led engineering team across 14 software releases over 14
-                        months (full-stack web, Android, desktop).
-                    </li>
-                    <li>
-                        Managed 2-week agile sprint cycles, code reviews, and
-                        project scope design.
-                    </li>
-                </ul>
-            </article>
-        </div>
-    </section>
+                    <div class="card-footer">
+                        <div class="project-tags">
+                            <span class="mini-tag">Rust</span>
+                            <span class="mini-tag">Reqwest</span>
+                            <span class="mini-tag">Flate2</span>
+                            <span class="mini-tag">SHA-1</span>
+                        </div>
+                        <div class="action-btns">
+                            <button
+                                type="button"
+                                class="view-btn"
+                                onclick={() => (appState.activeTab = "projects/Rugit")}
+                            >
+                                View Spec <Fa icon={faArrowRight} size="0.8x" />
+                            </button>
+                            <a
+                                href="https://github.com/PranavDesai-Git/rugit"
+                                target="_blank"
+                                rel="noreferrer"
+                                class="view-btn repo-btn"
+                            >
+                                View Repo <Fa icon={faArrowRight} size="0.8x" />
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- qLog -->
+                <article class="project-item">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="title-with-icon">
+                                <div class="icon-wrapper">
+                                    <Fa icon={faTerminal} size="1.1x" class="proj-icon" />
+                                </div>
+                                <div>
+                                    <h3 class="project-title">qLog</h3>
+                                    <span class="project-sub">Local AI-Driven Project Management TUI</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="teaser-text">
+                            Terminal user interface built in Go using Charm Bubble Tea.
+                            Integrates a local dual-model AI pipeline via Ollama (Qwen &
+                            Gemma) for automated agenda summary generation.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="project-tags">
+                            <span class="mini-tag">Go</span>
+                            <span class="mini-tag">Bubble Tea</span>
+                            <span class="mini-tag">Lipgloss</span>
+                            <span class="mini-tag">Ollama</span>
+                        </div>
+                        <div class="action-btns">
+                            <button
+                                type="button"
+                                class="view-btn"
+                                onclick={() => (appState.activeTab = "projects/qLog")}
+                            >
+                                View Spec <Fa icon={faArrowRight} size="0.8x" />
+                            </button>
+                            <a
+                                href="https://github.com/PranavDesai-Git/qlog"
+                                target="_blank"
+                                rel="noreferrer"
+                                class="view-btn repo-btn"
+                            >
+                                View Repo <Fa icon={faArrowRight} size="0.8x" />
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- OllaNews -->
+                <article class="project-item">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="title-with-icon">
+                                <div class="icon-wrapper">
+                                    <Fa icon={faGlobe} size="1.1x" class="proj-icon" />
+                                </div>
+                                <div>
+                                    <h3 class="project-title">OllaNews</h3>
+                                    <span class="project-sub">Local AI News Aggregator & Pipeline</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="teaser-text">
+                            Data pipeline built in Python/Flask to aggregate Google News
+                            feeds, extract raw HTML using Trafilatura, and generate
+                            single-paragraph article summaries locally via Ollama.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="project-tags">
+                            <span class="mini-tag">Python</span>
+                            <span class="mini-tag">Flask</span>
+                            <span class="mini-tag">Ollama</span>
+                            <span class="mini-tag">JavaScript</span>
+                        </div>
+                        <div class="action-btns">
+                            <button
+                                type="button"
+                                class="view-btn"
+                                onclick={() =>
+                                    (appState.activeTab = "projects/OllaNews")}
+                            >
+                                View Spec <Fa icon={faArrowRight} size="0.8x" />
+                            </button>
+                            <a
+                                href="https://github.com/PranavDesai-Git/ollanews"
+                                target="_blank"
+                                rel="noreferrer"
+                                class="view-btn repo-btn"
+                            >
+                                View Repo <Fa icon={faArrowRight} size="0.8x" />
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Wimp -->
+                <article class="project-item">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="title-with-icon">
+                                <div class="icon-wrapper">
+                                    <Fa icon={faCamera} size="1.1x" class="proj-icon" />
+                                </div>
+                                <div>
+                                    <h3 class="project-title">Wimp</h3>
+                                    <span class="project-sub">Android Botanical Vision Application</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="teaser-text">
+                            Native Android app in Kotlin using Jetpack Compose and
+                            CameraX to process raw YUV camera frame bytes for real-time
+                            luminance tracking and plant taxonomy identification.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="project-tags">
+                            <span class="mini-tag">Kotlin</span>
+                            <span class="mini-tag">Compose</span>
+                            <span class="mini-tag">Coroutines</span>
+                        </div>
+                        <div class="action-btns">
+                            <button
+                                type="button"
+                                class="view-btn"
+                                onclick={() => (appState.activeTab = "projects/Wimp")}
+                            >
+                                View Spec <Fa icon={faArrowRight} size="0.8x" />
+                            </button>
+                            <a
+                                href="https://github.com/PranavDesai-Git/wimp"
+                                target="_blank"
+                                rel="noreferrer"
+                                class="view-btn repo-btn"
+                            >
+                                View Repo <Fa icon={faArrowRight} size="0.8x" />
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 16-Bit Assembler -->
+                <article class="project-item">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="title-with-icon">
+                                <div class="icon-wrapper">
+                                    <Fa icon={faMicrochip} size="1.1x" class="proj-icon" />
+                                </div>
+                                <div>
+                                    <h3 class="project-title">16-Bit Assembler</h3>
+                                    <span class="project-sub">Low-Level Systems & Binary I/O</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="teaser-text">
+                            Lightweight assembler written in C. Compiles text assembly
+                            mnemonics into executable binary machine code for a custom
+                            42-instruction architecture using a single-pass lookup
+                            table.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="project-tags">
+                            <span class="mini-tag">C</span>
+                            <span class="mini-tag">Assembly</span>
+                            <span class="mini-tag">Binary I/O</span>
+                        </div>
+                        <div class="action-btns">
+                            <button
+                                type="button"
+                                class="view-btn"
+                                onclick={() =>
+                                    (appState.activeTab = "projects/Assembler")}
+                            >
+                                View Spec <Fa icon={faArrowRight} size="0.8x" />
+                            </button>
+                            <a
+                                href="https://github.com/PranavDesai-Git"
+                                target="_blank"
+                                rel="noreferrer"
+                                class="view-btn repo-btn"
+                            >
+                                View Repo <Fa icon={faArrowRight} size="0.8x" />
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section experience-section">
+            <h2 class="section-heading">
+                <Fa icon={faBriefcase} size="1x" class="heading-icon" /> Experience
+            </h2>
+            <div class="exp-list">
+                <!-- Darkcity Atelier -->
+                <article class="exp-item">
+                    <div class="exp-content">
+                        <div class="card-header">
+                            <div class="title-with-icon">
+                                <div class="icon-wrapper">
+                                    <Fa icon={faBriefcase} size="1.1x" class="proj-icon" />
+                                </div>
+                                <div>
+                                    <h3 class="exp-role">Game Development Intern</h3>
+                                    <div class="exp-company">Darkcity Atelier</div>
+                                </div>
+                            </div>
+                            <span class="exp-date">Feb 2026 – May 2026</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>
+                                Sole engineer for a native Android mobile game, writing
+                                10k+ lines of GDScript across 5 core gameplay systems.
+                            </li>
+                            <li>
+                                Optimized touch-input and game physics to achieve 120
+                                FPS across 15+ Android test devices.
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- G Electra Software Club -->
+                <article class="exp-item">
+                    <div class="exp-content">
+                        <div class="card-header">
+                            <div class="title-with-icon">
+                                <div class="icon-wrapper">
+                                    <Fa icon={faUsers} size="1.1x" class="proj-icon" />
+                                </div>
+                                <div>
+                                    <h3 class="exp-role">Software Club Lead</h3>
+                                    <div class="exp-company">
+                                        G Electra Software Club
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="exp-date">Jul 2025 – Present</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>
+                                Led engineering team across 14 software releases over 14
+                                months (full-stack web, Android, desktop).
+                            </li>
+                            <li>
+                                Managed 2-week agile sprint cycles, code reviews, and
+                                project scope design.
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
     </div>
 </div>
 
 <style>
+    :global(body) {
+        background-color: #000000;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
     .page-container {
         display: flex;
         flex-direction: column;
         width: 100%;
+        background-color: #000000;
+        color: #EDEDED;
+        font-family: var(--font-sans);
+        min-height: 100vh;
     }
 
     .hero-image-banner {
         position: relative;
         width: 100%;
-        height: clamp(200px, 32vw, 540px);
+        height: clamp(300px, 45vw, 600px);
         margin: 0;
         overflow: hidden;
     }
@@ -468,282 +493,253 @@
         object-position: center;
         transform: scaleY(-1);
         display: block;
-        transition: transform 0.4s ease;
     }
 
     .page-body {
         display: flex;
         flex-direction: column;
-        gap: 6.5rem;
-        padding: 0.85rem 3rem 6rem 3rem;
+        gap: 96px;
+        padding: 0 48px 96px 48px;
         box-sizing: border-box;
         width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
     }
 
     .hero-text-content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.75rem;
+        gap: 16px;
         width: 100%;
-        margin-top: -4.5rem;
-        position: relative;
-        z-index: 2;
+        margin-top: -120px;
     }
 
     .name-row {
         display: flex;
         align-items: center;
-        gap: 1rem;
     }
 
     .name-title {
         font-family: var(--font-heading);
-        font-size: 3.5rem;
+        font-size: clamp(3rem, 6vw, 5rem);
         font-weight: 700;
-        letter-spacing: -0.02em;
-        line-height: 1.05;
-        color: var(--text-main);
-        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.8);
+        letter-spacing: -0.05em;
+        line-height: 1;
+        color: #FFFFFF;
         margin: 0;
+        text-shadow: 0 4px 32px rgba(0, 0, 0, 0.9);
     }
 
     .role-subtitle {
-        font-family: var(--font-sans);
-        font-size: 1.15rem;
+        font-family: var(--font-mono);
+        font-size: 1.1rem;
         font-weight: 500;
-        letter-spacing: -0.01em;
-        color: var(--text-main);
-        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+        letter-spacing: -0.02em;
+        color: #f8fafc;
         margin: 0;
+        text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9);
     }
 
     .meta-grid {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
-        margin-top: 0.5rem;
-        font-family: var(--font-sans);
-        font-size: 0.9rem;
+        gap: 12px;
+        margin-top: 24px;
+        font-size: 0.95rem;
     }
 
     .meta-row {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 1.25rem 2rem;
+        gap: 24px;
     }
 
     .meta-item {
         display: flex;
         align-items: center;
-        gap: 0.45rem;
+        gap: 8px;
     }
 
     .meta-label {
-        color: var(--text-muted);
+        color: #737373;
+        font-weight: 500;
     }
 
     .meta-val {
-        color: var(--text-secondary);
+        color: #D4D4D4;
+    }
+
+    a.link {
+        color: #EDEDED;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(237, 237, 237, 0.3);
+        transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    a.link:hover {
+        color: #FFFFFF;
+        border-color: #FFFFFF;
     }
 
     .links-group {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        flex-wrap: wrap;
+        gap: 12px;
     }
 
     .icon-btn {
         display: inline-flex;
         align-items: center;
-        gap: 0.35rem;
-        padding: 0.2rem 0.55rem;
-        background-color: var(--bg-surface-hover);
-        border: 1px solid var(--border-subtle);
-        border-radius: 4px;
-        color: var(--text-main);
-        font-size: 0.78rem;
-        text-decoration: none;
-        transition:
-            background-color 0.15s ease,
-            color 0.15s ease,
-            border-color 0.15s ease;
+        gap: 6px;
+        padding: 6px 12px;
+        background-color: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 6px;
+        color: #D4D4D4;
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-decoration: none !important;
+        transition: all 0.2s ease;
     }
 
     .icon-btn:hover {
-        background-color: var(--accent);
-        border-color: var(--accent);
-        color: var(--text-inverse);
+        background-color: #EDEDED;
+        color: #000000;
+        border-color: #EDEDED;
+        transform: translateY(-1px);
     }
 
-    /* Section Headings */
+    /* Section Styles */
     .section {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .overview-section {
-        margin-top: 3.5rem;
+        gap: 32px;
     }
 
     .section-heading {
-        font-family: var(--font-heading);
+        font-family: var(--font-mono);
         font-size: 0.85rem;
-        font-weight: 700;
-        color: var(--text-muted);
-        letter-spacing: 0.08em;
+        font-weight: 600;
+        color: #737373;
+        letter-spacing: 0.05em;
         margin: 0;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 12px;
         text-transform: uppercase;
     }
 
     :global(.heading-icon) {
-        color: var(--text-main);
-    }
-
-    :global(.cat-icon) {
-        color: var(--stormy-teal);
-    }
-
-    :global(.proj-icon) {
-        color: var(--text-main);
-        flex-shrink: 0;
+        color: #A3A3A3;
     }
 
     .overview-content p {
         margin: 0;
-        color: var(--text-secondary);
+        color: #D4D4D4;
         font-size: 1.15rem;
-        line-height: 1.7;
-        font-weight: 500;
-        max-width: 900px;
+        line-height: 1.6;
+        font-weight: 400;
+        max-width: 800px;
     }
 
     /* Skills Grid */
     .skills-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 48px;
         width: 100%;
     }
 
     .skill-category {
-        background-color: transparent;
-        border: none;
-        padding: 0;
         display: flex;
         flex-direction: column;
-        gap: 1.1rem;
-        width: 100%;
-        box-sizing: border-box;
+        gap: 24px;
     }
 
     .category-name {
         font-family: var(--font-heading);
-        font-size: 0.95rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        color: var(--text-main);
+        font-size: 1.3rem;
+        color: #EDEDED;
         display: flex;
         align-items: center;
-        gap: 0.6rem;
-        border-bottom: 1px solid var(--border-subtle);
-        padding-bottom: 0.6rem;
-        white-space: nowrap;
+        gap: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    :global(.cat-icon) {
+        color: #737373;
+        font-size: 0.8rem;
     }
 
     .skills-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.85rem 1.75rem;
-        width: 100%;
+        gap: 12px;
     }
 
     .skill-item {
-        font-family: var(--font-sans);
         font-size: 0.95rem;
         font-weight: 500;
-        color: var(--text-secondary);
+        color: #A3A3A3;
         display: inline-flex;
         align-items: center;
-        gap: 0.55rem;
-        white-space: nowrap;
-        transition: color 0.15s ease;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.2s ease;
     }
 
     .skill-item:hover {
-        color: var(--text-main);
+        color: #EDEDED;
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.15);
     }
 
     :global(.skill-icon) {
-        color: var(--stormy-teal);
-        font-size: 1.2em;
-        opacity: 0.9;
+        color: #737373;
+        font-size: 1.1em;
     }
 
     .skill-item:hover :global(.skill-icon) {
-        color: var(--text-main);
-        opacity: 1;
+        color: #EDEDED;
     }
 
     /* Projects Grid */
     .projects-grid {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 1.75rem;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 24px;
         width: 100%;
     }
 
     .project-item {
-        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 100%;
-        background: transparent;
-        border: none;
-        padding: 0;
+        background: rgba(255, 255, 255, 0.02);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 32px;
+        transition: transform 0.3s ease, background 0.3s ease;
     }
 
-    .project-item:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        right: -0.875rem;
-        top: 15%;
-        height: 70%;
-        width: 0;
-        border-left: 1px dotted var(--border-subtle);
+    .project-item:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.04);
     }
 
-    /* Experience List */
-    .exp-list {
+    .card-content {
         display: flex;
         flex-direction: column;
-        gap: 1.75rem;
-    }
-
-    .exp-item {
-        display: flex;
-        flex-direction: column;
-        gap: 0.85rem;
-        padding-bottom: 1.75rem;
-        border-bottom: 1px dotted var(--border-subtle);
-        background: transparent;
-    }
-
-    .exp-item:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-
-    .title-with-icon {
-        display: flex;
-        align-items: center;
-        gap: 0.85rem;
+        gap: 16px;
     }
 
     .card-header {
@@ -751,209 +747,230 @@
         justify-content: space-between;
         align-items: flex-start;
         flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
+        gap: 16px;
+    }
+
+    .title-with-icon {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+    }
+
+    :global(.proj-icon) {
+        color: #EDEDED;
     }
 
     .project-title {
         font-family: var(--font-heading);
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: 700;
         margin: 0;
-        letter-spacing: -0.01em;
-        color: var(--text-main);
+        letter-spacing: 0;
+        color: #EDEDED;
+        line-height: 1.1;
     }
 
     .project-sub {
         font-family: var(--font-sans);
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         font-weight: 500;
-        color: var(--text-secondary);
+        color: #737373;
         display: block;
-        margin-top: 0.15rem;
+        margin-top: 4px;
     }
 
     .teaser-text {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        line-height: 1.55;
-        margin: 0 0 1rem 0;
+        color: #A3A3A3;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0 0 24px 0;
     }
 
     .card-footer {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        border-top: 1px dashed var(--border-subtle);
-        padding-top: 0.75rem;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: auto;
     }
 
     .project-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.4rem;
-        min-height: 52px;
-        align-content: flex-start;
+        gap: 8px;
     }
 
     .mini-tag {
         font-family: var(--font-mono);
-        font-size: 0.72rem;
+        font-size: 0.75rem;
         font-weight: 500;
-        color: var(--text-main);
-        background-color: var(--bg-surface-hover);
-        border: 1px solid var(--border-subtle);
-        padding: 0.2rem 0.55rem;
+        color: #A3A3A3;
+        background-color: rgba(255, 255, 255, 0.04);
+        padding: 4px 10px;
         border-radius: 4px;
     }
 
     .action-btns {
         display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
+        gap: 12px;
         width: 100%;
-        margin-top: 0.25rem;
     }
 
     .view-btn {
-        font-family: var(--font-sans);
-        font-size: 0.82rem;
+        flex: 1;
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
         font-weight: 600;
-        letter-spacing: 0.01em;
-        color: var(--text-inverse);
-        background-color: var(--accent);
-        border: none;
-        padding: 0.45rem 0.85rem;
-        min-height: 36px;
+        color: #000000;
+        background-color: #EDEDED;
+        border: 1px solid #EDEDED;
+        padding: 10px 16px;
         border-radius: 4px;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 0.4rem;
+        gap: 8px;
         text-decoration: none;
-        box-sizing: border-box;
-        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+        transition: all 0.2s ease;
     }
 
     .view-btn:hover {
-        background-color: var(--text-main);
-        color: var(--text-inverse);
+        background-color: #FFFFFF;
+        color: #000000;
+        border-color: #FFFFFF;
+        transform: translateY(-1px);
     }
 
     .view-btn.repo-btn {
         background-color: transparent;
-        color: var(--text-main);
-        border: 1px solid var(--border-subtle);
+        color: #EDEDED;
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .view-btn.repo-btn:hover {
-        background-color: var(--accent);
-        border-color: var(--accent);
-        color: var(--text-inverse);
+        background-color: #FFFFFF;
+        color: #000000;
+        border-color: #FFFFFF;
     }
 
-    .bullet-list {
-        margin: 0;
-        padding-left: 1.1rem;
+    /* Experience List */
+    .exp-list {
         display: flex;
         flex-direction: column;
-        gap: 0.45rem;
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        line-height: 1.55;
+        gap: 24px;
     }
 
-    .bullet-list li::marker {
-        color: var(--text-muted);
+    .exp-item {
+        background: rgba(255, 255, 255, 0.02);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 32px;
+        transition: transform 0.3s ease, background 0.3s ease;
     }
 
-    /* Experience Specific */
+    .exp-item:hover {
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-2px);
+    }
+
+    .exp-content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
     .exp-role {
         font-family: var(--font-heading);
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 700;
         margin: 0;
-        color: var(--text-main);
+        color: #EDEDED;
+        line-height: 1.1;
     }
 
     .exp-company {
         font-family: var(--font-sans);
-        font-size: 0.88rem;
+        font-size: 0.95rem;
         font-weight: 500;
-        color: var(--text-secondary);
-        margin-top: 0.15rem;
+        color: #A3A3A3;
+        margin-top: 4px;
     }
 
     .exp-date {
         font-family: var(--font-mono);
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: var(--text-inverse);
-        background-color: var(--accent);
-        padding: 0.2rem 0.6rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #737373;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 6px 12px;
         border-radius: 4px;
+        align-self: flex-start;
     }
 
-    @media (max-width: 1200px) {
-        .projects-grid {
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        }
-
-        .project-item:not(:last-child)::after {
-            display: none;
-        }
+    .bullet-list {
+        margin: 0;
+        padding-left: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        color: #A3A3A3;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
+    .bullet-list li::marker {
+        color: #737373;
+    }
+
+    /* Responsive */
     @media (max-width: 960px) {
+        .page-body {
+            padding: 0 32px 64px 32px;
+            gap: 64px;
+        }
+
         .skills-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 48px;
         }
     }
 
     @media (max-width: 640px) {
         .page-body {
-            padding: 0.5rem 1.25rem 4rem 1.25rem;
-            gap: 3.5rem;
+            padding: 0 24px 48px 24px;
+            gap: 48px;
         }
 
         .hero-text-content {
-            margin-top: -3.25rem;
-        }
-
-        .name-title {
-            font-size: 2.25rem;
-            word-break: break-word;
-        }
-
-        .role-subtitle {
-            font-size: 1.05rem;
+            margin-top: -80px;
         }
 
         .projects-grid {
             grid-template-columns: 1fr;
-            gap: 1.5rem;
         }
-
+        
         .card-header {
             flex-direction: column;
             align-items: flex-start;
-            gap: 0.5rem;
+            gap: 16px;
         }
 
-        .card-footer {
+        .action-btns {
             flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
         }
 
         .view-btn {
             width: 100%;
-            justify-content: center;
-            min-height: 44px;
+            min-height: 48px;
         }
     }
 </style>

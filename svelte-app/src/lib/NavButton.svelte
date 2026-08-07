@@ -62,17 +62,17 @@
     .nav-btn {
         width: 100%;
         padding: 0.55rem 0.85rem;
-        min-height: 44px;
+        min-height: 40px;
         text-align: left;
         background: transparent;
         color: var(--text-secondary);
-        border: none;
+        border: 1px solid transparent;
         border-radius: 4px;
-        font-family: var(--font-sans);
+        font-family: var(--font-mono);
         font-size: 0.85rem;
         font-weight: 500;
         cursor: pointer;
-        transition: background-color 0.15s ease, color 0.15s ease;
+        transition: all 0.15s ease;
         box-sizing: border-box;
         display: flex;
         justify-content: space-between;
@@ -82,11 +82,13 @@
     .nav-btn:hover {
         background-color: var(--bg-surface-hover);
         color: var(--text-main);
+        border-color: var(--border-subtle);
     }
 
     .nav-btn.active {
-        background-color: var(--accent);
+        background-color: var(--text-main);
         color: var(--text-inverse);
+        border-color: var(--text-main);
         font-weight: 600;
     }
 
@@ -107,11 +109,11 @@
         padding-left: 0.75rem;
         display: flex;
         flex-direction: column;
-        gap: 0.2rem;
+        gap: 0.25rem;
         border-left: 1px dashed var(--border-subtle);
         margin-left: 0.5rem;
-        margin-top: 0.2rem;
-        margin-bottom: 0.2rem;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
     }
 
     .arrow {

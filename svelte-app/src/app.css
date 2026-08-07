@@ -1,44 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..800;1,400..800&display=swap');
+
 :root {
-    /* User Color Palette */
+    /* Backend Engineer Palette */
     --black: #000000;
-    --alabaster-grey: #d8dbe2;
-    --stormy-teal: #407076;
-    --dark-amaranth: #9c0d38;
-    --olive: #83781b;
-
-    /* Semantic Role Mappings */
+    --alabaster-grey: #e2e8f0;
+    --stormy-teal: #38bdf8;
+    --dark-amaranth: #e11d48;
+    --olive: #84cc16;
+    
     --bg-pitch: var(--black);
-    --bg-surface: #0c0f12;
-    --bg-surface-hover: #161c22;
-    --bg-card: #0d1115;
-    --bg-card-hover: #12181f;
+    --bg-surface: #0a0a0a;
+    --bg-surface-hover: #171717;
+    --bg-card: #0a0a0a;
+    --bg-card-hover: #171717;
+    
+    --border: #262626;
+    --border-subtle: #171717;
 
-    --border: var(--stormy-teal);
-    --border-subtle: #203538;
-
-    --text-main: var(--alabaster-grey);
-    --text-secondary: #b0b6c4;
-    --text-muted: #8ba2a5;
+    --text-main: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #475569;
     --text-inverse: #000000;
 
-    --accent: var(--alabaster-grey);
-    --accent-subtle: rgba(216, 219, 226, 0.15);
-    --accent-dark: #12161a;
+    --accent: #f8fafc;
+    --accent-subtle: rgba(248, 250, 252, 0.15);
+    --accent-dark: #171717;
     --accent-olive: var(--olive);
     --accent-teal: var(--stormy-teal);
 
     /* Typography Tokens */
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-heading: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-sans: 'JetBrains Mono', monospace;
+    --font-heading: 'JetBrains Mono', monospace;
+    --font-mono: 'JetBrains Mono', monospace;
 
     /* Semantic Typography Aliases */
     --sans: var(--font-sans);
     --heading: var(--font-heading);
     --mono: var(--font-mono);
 
-    font: 16px/1.65 var(--font-sans);
-    letter-spacing: -0.011em;
+    font: 14px/1.65 var(--font-sans);
+    letter-spacing: -0.02em;
     color-scheme: dark;
     color: var(--text-main);
     background: var(--bg-pitch);
@@ -49,7 +50,7 @@
 }
 
 *:focus-visible {
-    outline: 2px solid var(--stormy-teal);
+    outline: 1px solid var(--text-main);
     outline-offset: 2px;
 }
 
@@ -77,8 +78,8 @@ body {
 
 /* Custom Flat Scrollbar */
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -87,9 +88,9 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: var(--border);
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--alabaster-grey);
+    background: var(--text-secondary);
 }
