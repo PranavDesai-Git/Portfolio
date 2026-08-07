@@ -2,5 +2,11 @@
   "framework": "vite",
   "installCommand": "npm --prefix svelte-app install",
   "buildCommand": "npm --prefix svelte-app run build",
-  "outputDirectory": "svelte-app/dist"
+  "outputDirectory": "svelte-app/dist",
+  "rewrites": [
+    {
+      "source": "/api/github-contributions",
+      "destination": "https://github-contributions.vercel.app/api/v1/PranavDesai-Git"
+    }
+  ]
 }
