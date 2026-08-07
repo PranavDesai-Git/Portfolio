@@ -7,6 +7,10 @@
     {
       "source": "/api/github-contributions",
       "destination": "https://github-contributions.vercel.app/api/v1/PranavDesai-Git"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
