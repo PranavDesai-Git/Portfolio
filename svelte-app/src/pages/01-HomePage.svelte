@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from "svelte";
     import Fa from "svelte-fa";
     import {
         faLocationDot,
@@ -33,6 +34,51 @@
     import { appState } from "../lib/store.svelte.js";
     import GithubGraph from "../lib/GithubGraph.svelte";
     import heroBg from "../assets/herobackground.webp";
+
+    let displayedSubtitle = $state("");
+    let showCursor = $state(true);
+    const fullSubtitle = "Networking | Systems | Backend Engineer";
+
+    onMount(() => {
+        let i = 0;
+        const typeInterval = setInterval(() => {
+            if (i < fullSubtitle.length) {
+                displayedSubtitle += fullSubtitle.charAt(i);
+                i++;
+            } else {
+                clearInterval(typeInterval);
+                setTimeout(() => {
+                    showCursor = false;
+                }, 2000); // Blink for 2 seconds then vanish
+            }
+        }, 30); // Very fast typing
+    });
+
+    function handleCardMouseMove(e) {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
+        e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+    }
+
+    function reveal(node) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    node.classList.add('revealed');
+                    observer.unobserve(node);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(node);
+        return {
+            destroy() {
+                observer.disconnect();
+            }
+        };
+    }
 </script>
 
 <svelte:head>
@@ -49,7 +95,9 @@
             <div class="name-row">
                 <h1 class="name-title">Pranav Desai</h1>
             </div>
-            <p class="role-subtitle">Networking | Systems | Backend Engineer</p>
+            <p class="role-subtitle">
+                {displayedSubtitle}{#if showCursor}<span class="cursor">█</span>{/if}
+            </p>
 
             <div class="meta-grid">
                 <div class="meta-row">
@@ -102,7 +150,7 @@
         </header>
 
         <!-- Overview Section -->
-        <section class="section overview-section">
+        <section class="section overview-section reveal-hidden" use:reveal>
             <h2 class="section-heading">
                 <Fa icon={faFileLines} size="1x" class="heading-icon" /> Overview
             </h2>
@@ -118,7 +166,7 @@
         </section>
 
         <!-- Skills Section -->
-        <section class="section skills-section">
+        <section class="section skills-section reveal-hidden" use:reveal>
             <h2 class="section-heading">
                 <Fa icon={faLayerGroup} size="1x" class="heading-icon" /> Skills
             </h2>
@@ -153,7 +201,7 @@
         </section>
 
         <!-- Contribution Graph -->
-        <section class="section github-section">
+        <section class="section github-section reveal-hidden" use:reveal>
             <h2 class="section-heading">
                 <Fa icon={faGithub} size="1x" class="heading-icon" /> Commit Activity
             </h2>
@@ -161,13 +209,13 @@
         </section>
 
         <!-- Projects -->
-        <section class="section projects-section">
+        <section class="section projects-section reveal-hidden" use:reveal>
             <h2 class="section-heading">
                 <Fa icon={faCode} size="1x" class="heading-icon" /> Featured Projects
             </h2>
             <div class="projects-grid">
                 <!-- Rugit -->
-                <article class="project-item">
+                <article class="project-item" onmousemove={handleCardMouseMove}>
                     <div class="card-content">
                         <div class="card-header">
                             <div class="title-with-icon">
@@ -215,7 +263,7 @@
                 </article>
 
                 <!-- qLog -->
-                <article class="project-item">
+                <article class="project-item" onmousemove={handleCardMouseMove}>
                     <div class="card-content">
                         <div class="card-header">
                             <div class="title-with-icon">
@@ -262,7 +310,7 @@
                 </article>
 
                 <!-- OllaNews -->
-                <article class="project-item">
+                <article class="project-item" onmousemove={handleCardMouseMove}>
                     <div class="card-content">
                         <div class="card-header">
                             <div class="title-with-icon">
@@ -310,7 +358,7 @@
                 </article>
 
                 <!-- Wimp -->
-                <article class="project-item">
+                <article class="project-item" onmousemove={handleCardMouseMove}>
                     <div class="card-content">
                         <div class="card-header">
                             <div class="title-with-icon">
@@ -359,7 +407,7 @@
         </section>
 
         <!-- Experience -->
-        <section class="section experience-section">
+        <section class="section experience-section reveal-hidden" use:reveal>
             <h2 class="section-heading">
                 <Fa icon={faBriefcase} size="1x" class="heading-icon" /> Experience
             </h2>
@@ -432,6 +480,29 @@
         margin: 0;
         padding: 0;
         overflow-x: hidden;
+    }
+
+    .cursor {
+        animation: blink 1s step-end infinite;
+        color: #EDEDED;
+        margin-left: 2px;
+        display: inline-block;
+    }
+    
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+
+    .reveal-hidden {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    :global(.reveal-hidden.revealed) {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .page-container {
@@ -701,6 +772,23 @@
         border-radius: 8px;
         padding: 32px;
         transition: transform 0.3s ease, background 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .project-item::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255, 255, 255, 0.05), transparent 40%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .project-item:hover::before {
+        opacity: 1;
     }
 
     .project-item:hover {
@@ -712,6 +800,8 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
+        position: relative;
+        z-index: 1;
     }
 
     .card-header {
@@ -773,6 +863,8 @@
         flex-direction: column;
         gap: 24px;
         margin-top: auto;
+        position: relative;
+        z-index: 1;
     }
 
     .project-tags {
