@@ -7,6 +7,7 @@
     } from "./lib/navigation.js";
     import yamlTabs from "./lib/navigation.yaml";
     import { fade, fly } from "svelte/transition";
+    import FolderView from "./lib/FolderView.svelte";
     import HomePage from "./pages/01-HomePage.svelte";
 
     const pageModules = import.meta.glob("./pages/**/*.{svelte,md}", {
@@ -34,6 +35,21 @@
 
     import { onMount } from "svelte";
     
+    function findFolderInfo(path, currentTabs) {
+        if (!currentTabs) return null;
+        for (const t of currentTabs) {
+            if (t.folderPath === path) {
+                return t;
+            }
+            if (Array.isArray(t.target)) {
+                const sub = findFolderInfo(path, t.target);
+                if (sub) return sub;
+            }
+        }
+        return null;
+    }
+
+    let activeFolderInfo = $derived(findFolderInfo(appState.activeTab, tabs));
     let ActivePage = $derived(pageComponents[appState.activeTab] || HomePage);
     let isNavCollapsed = $state(false);
 
@@ -98,6 +114,7 @@
                         text={tab.name}
                         target={tab.target}
                         defaultTarget={tab.defaultTarget}
+                        folderPath={tab.folderPath}
                     />
                 {/each}
             </div>
@@ -111,7 +128,11 @@
                 in:fly={{ y: 20, duration: 400, delay: 100 }}
                 out:fade={{ duration: 150 }}
             >
-                <ActivePage />
+                {#if activeFolderInfo}
+                    <FolderView folderPath={activeFolderInfo.folderPath} items={activeFolderInfo.target} />
+                {:else}
+                    <ActivePage />
+                {/if}
             </div>
         {/key}
     </section>

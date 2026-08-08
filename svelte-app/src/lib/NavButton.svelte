@@ -5,7 +5,7 @@
     import { faFolder, faFileLines, faChevronRight } from "@fortawesome/free-solid-svg-icons";
     import { slide } from "svelte/transition";
 
-    let { text = "NavButton", target, defaultTarget } = $props();
+    let { text = "NavButton", target, defaultTarget, folderPath } = $props();
     let isOpen = $state(false);
 </script>
 
@@ -14,9 +14,12 @@
         <button
             type="button"
             class="nav-btn group-btn"
-            class:active={defaultTarget && appState.activeTab === defaultTarget}
+            class:active={(folderPath && appState.activeTab === folderPath) || (!folderPath && defaultTarget && appState.activeTab === defaultTarget)}
             onclick={() => {
-                if (defaultTarget != null) {
+                const isMobile = window.innerWidth <= 768;
+                if (folderPath && !isMobile) {
+                    appState.activeTab = folderPath;
+                } else if (defaultTarget != null) {
                     appState.activeTab = defaultTarget;
                 }
                 isOpen = !isOpen;
@@ -37,6 +40,7 @@
                         text={t.text}
                         target={t.target}
                         defaultTarget={t.defaultTarget}
+                        folderPath={t.folderPath}
                     />
                 {/each}
             </div>

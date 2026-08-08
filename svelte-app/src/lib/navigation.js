@@ -32,13 +32,15 @@ export function generateTabsFromFiles(pageModules) {
     }
 
     // 2. Convert directory tree into NavButton tab structure
-    function buildNode(name, node) {
+    function buildNode(name, node, currentPath = "") {
         const children = [];
+        const cleanName = cleanDisplayName(name);
+        const folderPath = currentPath ? `${currentPath}/${cleanName}` : cleanName;
 
         // Add subdirectories
         for (const [key, childNode] of Object.entries(node)) {
             if (key !== "_files") {
-                children.push(buildNode(key, childNode));
+                children.push(buildNode(key, childNode, folderPath));
             }
         }
 
@@ -71,10 +73,10 @@ export function generateTabsFromFiles(pageModules) {
             name: groupName,
             text: groupName,
             target: children,
-            defaultTarget: defaultTarget
+            defaultTarget: defaultTarget,
+            folderPath: folderPath
         };
     }
-
 
     const tabs = [];
 
@@ -85,7 +87,7 @@ export function generateTabsFromFiles(pageModules) {
                 tabs.push({ name: displayName, text: displayName, target: file.target });
             }
         } else {
-            tabs.push(buildNode(key, node));
+            tabs.push(buildNode(key, node, ""));
         }
     }
 
@@ -130,7 +132,8 @@ export function mergeTabsWithYaml(autoTabs, yamlTabs) {
                 name: yTab.name || autoTab.name,
                 text: yTab.text || yTab.name || autoTab.text,
                 defaultTarget: yTab.defaultTarget ?? autoTab.defaultTarget ?? null,
-                target: mergedTarget
+                target: mergedTarget,
+                folderPath: autoTab.folderPath
             });
         } else {
             // Defined in YAML (custom menu entry or group)
@@ -143,7 +146,8 @@ export function mergeTabsWithYaml(autoTabs, yamlTabs) {
                 name: yTab.name || yTab.text,
                 text: yTab.text || yTab.name,
                 target: target,
-                defaultTarget: yTab.defaultTarget ?? null
+                defaultTarget: yTab.defaultTarget ?? null,
+                folderPath: yTab.folderPath
             });
         }
     }
