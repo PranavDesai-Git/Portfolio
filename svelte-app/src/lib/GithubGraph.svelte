@@ -3,11 +3,35 @@
 
     // Fallback data
     let weeks = $state(
-        Array.from({ length: 52 }, () => Array.from({ length: 7 }, () => 0))
+        Array.from({ length: 52 }, () => Array.from({ length: 7 }, () => ({ level: 0, count: 0, date: "" })))
     );
 
     let recentCommits = $state([]);
     let graphHeight = $state(0);
+
+    let tooltipVisible = $state(false);
+    let tooltipX = $state(0);
+    let tooltipY = $state(0);
+    let tooltipText = $state("");
+
+    function handleMouseMove(e, day) {
+        tooltipVisible = true;
+        tooltipX = e.clientX + 12;
+        tooltipY = e.clientY + 12;
+        
+        let countText = "No contributions";
+        if (day.level === 1) countText = "1-4 contributions";
+        if (day.level === 2) countText = "5-9 contributions";
+        if (day.level === 3) countText = "10-14 contributions";
+        if (day.level === 4) countText = "15+ contributions";
+        
+        const dateStr = day.date ? new Date(day.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+        tooltipText = dateStr ? `${countText} on ${dateStr}` : countText;
+    }
+
+    function handleMouseLeave() {
+        tooltipVisible = false;
+    }
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -24,7 +48,11 @@
                     const newWeeks = [];
                     for (let i = 0; i < last364.length; i += 7) {
                         const weekChunk = last364.slice(i, i + 7);
-                        newWeeks.push(weekChunk.map(day => parseInt(day.intensity || 0)));
+                        newWeeks.push(weekChunk.map(day => ({
+                            level: parseInt(day.intensity || 0),
+                            count: day.count || 0,
+                            date: day.date
+                        })));
                     }
                     if (newWeeks.length > 0) weeks = newWeeks;
                 }
@@ -54,7 +82,8 @@
                         hash: commitObj.sha.substring(0, 7),
                         repo: "Portfolio",
                         msg: commitObj.commit.message.split('\n')[0], // First line only
-                        time: timeStr
+                        time: timeStr,
+                        url: commitObj.html_url
                     });
                 }
                 if (parsedCommits.length > 0) {
@@ -79,8 +108,13 @@
                 <div class="grid">
                     {#each weeks as week}
                         <div class="week">
-                            {#each week as dayLevel}
-                                <div class="day level-{dayLevel}"></div>
+                            {#each week as day}
+                                <!-- svelte-ignore a11y_no_static_element_interactions -->
+                                <div 
+                                    class="day level-{day.level}" 
+                                    onmousemove={(e) => handleMouseMove(e, day)}
+                                    onmouseleave={handleMouseLeave}
+                                ></div>
                             {/each}
                         </div>
                     {/each}
@@ -103,19 +137,44 @@
         <ul class="commit-list">
             {#each recentCommits as commit}
                 <li class="commit-item">
-                    <div class="commit-top">
-                        <span class="commit-hash">{commit.hash}</span>
-                        <span class="commit-repo">{commit.repo}</span>
-                    </div>
-                    <span class="commit-msg">{commit.msg}</span>
-                    <span class="commit-time">{commit.time}</span>
+                    <a href={commit.url} target="_blank" rel="noreferrer" class="commit-link">
+                        <div class="commit-top">
+                            <span class="commit-hash">{commit.hash}</span>
+                            <span class="commit-repo">{commit.repo}</span>
+                        </div>
+                        <span class="commit-msg">{commit.msg}</span>
+                        <span class="commit-time">{commit.time}</span>
+                    </a>
                 </li>
             {/each}
         </ul>
     </aside>
 </div>
 
+{#if tooltipVisible}
+    <div 
+        class="custom-tooltip" 
+        style="left: {tooltipX}px; top: {tooltipY}px;"
+    >
+        {tooltipText}
+    </div>
+{/if}
+
 <style>
+    .custom-tooltip {
+        position: fixed;
+        background: #000000;
+        color: #EDEDED;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        pointer-events: none;
+        z-index: 9999;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        white-space: nowrap;
+    }
     .github-activity-layout {
         display: flex;
         gap: 32px;
@@ -275,20 +334,30 @@
     }
 
     .commit-item {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        padding: 12px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .commit-item:first-child {
-        padding-top: 0;
+        /* padding-top: 0; */
     }
 
     .commit-item:last-child {
         border-bottom: none;
-        padding-bottom: 0;
+    }
+
+    .commit-link {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 12px 8px;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .commit-link:hover {
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateX(4px);
     }
 
     .commit-top {

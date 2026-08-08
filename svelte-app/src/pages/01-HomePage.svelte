@@ -355,53 +355,6 @@
                     </div>
                 </article>
 
-                <!-- 16-Bit Assembler -->
-                <article class="project-item">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="title-with-icon">
-                                <div class="icon-wrapper">
-                                    <Fa icon={faMicrochip} size="1.1x" class="proj-icon" />
-                                </div>
-                                <div>
-                                    <h3 class="project-title">16-Bit Assembler</h3>
-                                    <span class="project-sub">Low-Level Systems & Binary I/O</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="teaser-text">
-                            Lightweight assembler written in C. Compiles text assembly
-                            mnemonics into executable binary machine code for a custom
-                            42-instruction architecture using a single-pass lookup
-                            table.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="project-tags">
-                            <span class="mini-tag">C</span>
-                            <span class="mini-tag">Assembly</span>
-                            <span class="mini-tag">Binary I/O</span>
-                        </div>
-                        <div class="action-btns">
-                            <button
-                                type="button"
-                                class="view-btn"
-                                onclick={() =>
-                                    (appState.activeTab = "projects/Assembler")}
-                            >
-                                View Spec <Fa icon={faArrowRight} size="0.8x" />
-                            </button>
-                            <a
-                                href="https://github.com/PranavDesai-Git"
-                                target="_blank"
-                                rel="noreferrer"
-                                class="view-btn repo-btn"
-                            >
-                                View Repo <Fa icon={faArrowRight} size="0.8x" />
-                            </a>
-                        </div>
-                    </div>
-                </article>
             </div>
         </section>
 
@@ -728,9 +681,15 @@
     /* Projects Grid */
     .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 24px;
         width: 100%;
+    }
+
+    @media (max-width: 900px) {
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     .project-item {
