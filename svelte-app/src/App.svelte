@@ -82,10 +82,6 @@
         if (window.location.pathname !== targetPath) {
             window.history.pushState(null, '', targetPath);
         }
-
-        if (window.innerWidth <= 768) {
-            isNavCollapsed = true;
-        }
     });
 </script>
 
