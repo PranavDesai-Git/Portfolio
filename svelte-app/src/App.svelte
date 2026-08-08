@@ -88,7 +88,13 @@
 <main class="layout">
     <aside class="sidebar" class:collapsed={isNavCollapsed}>
         <div class="sidebar-header">
-            <div class="brand">
+            <div 
+                class="brand" 
+                role="button" 
+                tabindex="0" 
+                onclick={() => { appState.activeTab = 'Home'; }}
+                onkeydown={(e) => { if (e.key === 'Enter') appState.activeTab = 'Home'; }}
+            >
                 <span class="dot">●</span>
                 <span class="brand-title">PORTFOLIO</span>
             </div>
@@ -175,6 +181,7 @@
         font-weight: 700;
         letter-spacing: 0.06em;
         color: var(--text-secondary);
+        cursor: pointer;
     }
 
     .brand .dot {

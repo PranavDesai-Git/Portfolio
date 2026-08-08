@@ -3,16 +3,21 @@
     import { marked } from "marked";
     import DOMPurify from "dompurify";
 
-    let { repo } = $props();
+    let { repo, branch } = $props();
 
     let readmeHtml = $state("<p>Loading README...</p>");
     let error = $state(null);
 
     onMount(async () => {
         try {
-            let res = await fetch(`https://raw.githubusercontent.com/${repo}/main/README.md`);
-            if (!res.ok) {
-                res = await fetch(`https://raw.githubusercontent.com/${repo}/master/README.md`);
+            let res;
+            if (branch) {
+                res = await fetch(`https://raw.githubusercontent.com/${repo}/${branch}/README.md`);
+            } else {
+                res = await fetch(`https://raw.githubusercontent.com/${repo}/main/README.md`);
+                if (!res.ok) {
+                    res = await fetch(`https://raw.githubusercontent.com/${repo}/master/README.md`);
+                }
             }
             
             if (res.ok) {
