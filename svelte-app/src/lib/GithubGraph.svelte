@@ -15,6 +15,7 @@
     let tooltipText = $state("");
 
     function handleMouseMove(e, day) {
+        if (window.matchMedia && window.matchMedia("(hover: none)").matches) return;
         tooltipVisible = true;
         tooltipX = e.clientX + 12;
         tooltipY = e.clientY + 12;
@@ -181,6 +182,7 @@
         align-items: stretch;
         width: 100%;
         justify-content: space-between;
+        min-width: 0;
     }
 
     @media (max-width: 1100px) {
@@ -191,8 +193,9 @@
     }
 
     .graph-section {
-        flex: 0 0 auto;
+        flex: 1;
         max-width: 100%;
+        min-width: 0;
     }
 
     .graph-scroll {
@@ -298,6 +301,7 @@
     @media (max-width: 1100px) {
         .recent-commits-section {
             width: 100%;
+            min-width: 0;
         }
     }
 
@@ -389,6 +393,7 @@
         font-size: 0.9rem;
         color: #D4D4D4;
         line-height: 1.4;
+        text-align: justify;
     }
 
     .commit-time {

@@ -108,8 +108,8 @@
         {#key appState.activeTab}
             <div
                 class="main-content"
-                in:fly={{ y: 8, duration: 180, delay: 60 }}
-                out:fade={{ duration: 80 }}
+                in:fly={{ y: 20, duration: 400, delay: 100 }}
+                out:fade={{ duration: 150 }}
             >
                 <ActivePage />
             </div>
@@ -189,12 +189,16 @@
         overflow-y: auto;
         overflow-x: hidden;
         background-color: var(--bg-pitch);
+        display: grid;
+        min-width: 0;
     }
 
     .main-content {
         width: 100%;
         max-width: 100%;
         margin: 0;
+        grid-area: 1 / 1;
+        min-width: 0;
     }
 
     .nav-bar {

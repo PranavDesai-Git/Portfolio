@@ -554,6 +554,16 @@
         margin-top: -120px;
     }
 
+    @media (max-width: 768px) {
+        .page-body {
+            padding: 0 24px 64px 24px;
+            gap: 64px;
+        }
+        .hero-text-content {
+            margin-top: -80px;
+        }
+    }
+
     .name-row {
         display: flex;
         align-items: center;
@@ -615,6 +625,8 @@
         text-decoration: none;
         border-bottom: 1px solid rgba(237, 237, 237, 0.3);
         transition: border-color 0.2s ease, color 0.2s ease;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
 
     a.link:hover {
@@ -682,12 +694,13 @@
         line-height: 1.6;
         font-weight: 400;
         max-width: 800px;
+        text-align: justify;
     }
 
     /* Skills Grid */
     .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
         gap: 48px;
         width: 100%;
     }
@@ -856,6 +869,7 @@
         font-size: 0.95rem;
         line-height: 1.6;
         margin: 0 0 24px 0;
+        text-align: justify;
     }
 
     .card-footer {
@@ -906,6 +920,7 @@
         gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
+        box-sizing: border-box;
     }
 
     .view-btn:hover {
@@ -990,6 +1005,7 @@
         color: #A3A3A3;
         font-size: 0.95rem;
         line-height: 1.6;
+        text-align: justify;
     }
 
     .bullet-list li::marker {
