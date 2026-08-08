@@ -7,7 +7,7 @@ function getFiles(dir, fileList = []) {
         const filePath = path.join(dir, file);
         if (fs.statSync(filePath).isDirectory()) {
             getFiles(filePath, fileList);
-        } else if (file.endsWith('.svelte')) {
+        } else if (file.endsWith('.svelte') || file.endsWith('.md')) {
             fileList.push(filePath);
         }
     }
@@ -29,7 +29,7 @@ export function sitemapPlugin() {
 
             for (const file of files) {
                 const relativePath = path.relative(pagesDir, file).replace(/\\/g, '/');
-                let cleanKey = relativePath.replace('.svelte', '');
+                let cleanKey = relativePath.replace(/\.(svelte|md)$/, '');
                 
                 cleanKey = cleanKey.split('/').map(part => {
                     let clean = part.replace(/^\d+-/, "");

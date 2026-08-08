@@ -14,7 +14,7 @@ export function generateTabsFromFiles(pageModules) {
 
     // 1. Parse file paths into a nested directory tree
     for (const path of Object.keys(pageModules)) {
-        const cleanPath = path.replace("./pages/", "").replace(".svelte", "");
+        const cleanPath = path.replace("./pages/", "").replace(/\.(svelte|md)$/, "");
         const cleanTarget = cleanPath.split("/").map(cleanDisplayName).join("/");
         const parts = cleanPath.split("/");
 

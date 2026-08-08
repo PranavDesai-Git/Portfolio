@@ -9,7 +9,7 @@
     import { fade, fly } from "svelte/transition";
     import HomePage from "./pages/01-HomePage.svelte";
 
-    const pageModules = import.meta.glob("./pages/**/*.svelte", {
+    const pageModules = import.meta.glob("./pages/**/*.{svelte,md}", {
         eager: true,
     });
 
@@ -18,7 +18,7 @@
 
     const pageComponents = {};
     for (const [path, module] of Object.entries(pageModules)) {
-        const rawKey = path.replace("./pages/", "").replace(".svelte", "");
+        const rawKey = path.replace("./pages/", "").replace(/\.(svelte|md)$/, "");
         const cleanKey = rawKey
             .split("/")
             .map((part) => {

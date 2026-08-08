@@ -7,31 +7,55 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://pranavdesai.vercel.app/Projects/Rugit</loc>
+    <loc>https://pranavdesai.vercel.app/Projects/Rugit/Overview</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pranavdesai.vercel.app/Projects/qLog</loc>
+    <loc>https://pranavdesai.vercel.app/Projects/Rugit/README</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pranavdesai.vercel.app/Projects/Wimp</loc>
+    <loc>https://pranavdesai.vercel.app/Projects/qLog/Overview</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pranavdesai.vercel.app/Projects/OllaNews</loc>
+    <loc>https://pranavdesai.vercel.app/Projects/qLog/README</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pranavdesai.vercel.app/Projects/Assembler</loc>
+    <loc>https://pranavdesai.vercel.app/Projects/OllaNews/Overview</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pranavdesai.vercel.app/Projects/OllaNews/README</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pranavdesai.vercel.app/Projects/Wimp/Overview</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pranavdesai.vercel.app/Projects/Wimp/README</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pranavdesai.vercel.app/Projects/Wimp/Notes</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
